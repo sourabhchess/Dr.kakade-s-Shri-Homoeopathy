@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Book Appointment – Shri Homeopathic Clinic</title>
+<link href="https://fonts.googleapis.com/css2?family=Yeseva+One&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"> 
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+    <link href="lib/twentytwenty/twentytwenty.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --green:       #2e7d52;
+  --green-mid:   #3a9966;
+  --green-light: #6dbb90;
+  --green-pale:  #e8f5ee;
+  --green-deep:  #1a5538;
+  --leaf:        #5a9e4e;
+  --amber:       #d4882a;
+  --amber-pale:  #fef6ea;
+  --wa:          #25d366;
+  --wa-dark:     #128c4a;
+  --cream:       #f9faf6;
+  --white:       #ffffff;
+  --ink:         #1a2118;
+  --mid:         #4a5e50;
+  --muted:       #8fa898;
+  --border:      rgba(46,125,82,.14);
+  --border-mid:  rgba(46,125,82,.25);
+  --shadow-s:    0 2px 16px rgba(26,85,56,.07);
+  --shadow-m:    0 8px 40px rgba(26,85,56,.12);
+  --shadow-l:    0 24px 72px rgba(26,85,56,.18);
+}
+
+html{scroll-behavior:smooth}
+body{
+  font-family:'Nunito',sans-serif;
+  background:var(--cream);
+  color:var(--ink);
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+/* ── ORGANIC BG ── */
+body::before{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(ellipse 70% 55% at 0% 0%,rgba(46,125,82,.07) 0%,transparent 65%),
+    radial-gradient(ellipse 55% 45% at 100% 100%,rgba(90,158,78,.05) 0%,transparent 65%),
+    url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%232e7d52' fill-opacity='0.025'%3E%3Cpath d='M40 40c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm0 0c0 11 9 20 20 20s20-9 20-20-9-20-20-20-20 9-20 20z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* ── HEADER ── */
+header{
+  position:relative;z-index:30;
+  background:var(--white);
+  border-bottom:1px solid var(--border);
+  padding:0 44px;height:72px;
+  display:flex;align-items:center;justify-content:space-between;
+  box-shadow:var(--shadow-s);
+}
+.logo-wrap{display:flex;align-items:center;gap:14px}
+.logo-emblem{
+  width:46px;height:46px;border-radius:50%;flex-shrink:0;
+  background:linear-gradient(145deg,var(--green) 0%,var(--green-deep) 100%);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 14px rgba(46,125,82,.3);
+}
+.logo-emblem svg{width:26px;height:26px}
+.logo-text h1{
+  font-family:'Yeseva One',serif;
+  font-size:19px;color:var(--ink);line-height:1.1;letter-spacing:.01em;
+}
+.logo-text p{font-size:10px;color:var(--muted);font-weight:400;letter-spacing:.1em;text-transform:uppercase;margin-top:2px}
+
+.wa-header-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--wa);color:#fff;
+  font-family:'Nunito',sans-serif;font-size:13px;font-weight:700;
+  padding:9px 18px;border-radius:24px;text-decoration:none;
+  transition:all .22s;box-shadow:0 4px 16px rgba(37,211,102,.3);
+}
+.wa-header-btn:hover{background:var(--wa-dark);transform:translateY(-1px);box-shadow:0 6px 22px rgba(37,211,102,.4)}
+.wa-header-btn svg{width:18px;height:18px}
+
+/* ── HERO ── */
+.hero{
+  position:relative;z-index:1;
+  background:linear-gradient(158deg,var(--green-deep) 0%,var(--green) 55%,var(--leaf) 100%);
+  padding:60px 44px 110px;text-align:center;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background-image:
+    radial-gradient(circle at 15% 50%,rgba(255,255,255,.05) 0%,transparent 40%),
+    radial-gradient(circle at 85% 30%,rgba(212,136,42,.08) 0%,transparent 40%),
+    repeating-linear-gradient(60deg,rgba(255,255,255,.018) 0px,rgba(255,255,255,.018) 1px,transparent 1px,transparent 36px);
+  pointer-events:none;
+}
+.hero::after{
+  content:'';position:absolute;bottom:-2px;left:0;right:0;height:80px;
+  background:var(--cream);
+  clip-path:ellipse(60% 100% at 50% 100%);
+}
+
+/* Floating leaves decoration */
+.leaf-deco{position:absolute;opacity:.12;pointer-events:none}
+.leaf-deco.l1{top:20px;left:40px;font-size:60px;transform:rotate(-30deg);animation:float1 6s ease-in-out infinite}
+.leaf-deco.l2{top:40px;right:60px;font-size:44px;transform:rotate(20deg);animation:float1 7s ease-in-out infinite .5s}
+.leaf-deco.l3{bottom:80px;left:80px;font-size:36px;transform:rotate(45deg);animation:float1 8s ease-in-out infinite 1s}
+.leaf-deco.l4{bottom:100px;right:44px;font-size:50px;transform:rotate(-15deg);animation:float1 5s ease-in-out infinite .3s}
+@keyframes float1{0%,100%{transform:translateY(0) rotate(-30deg)}50%{transform:translateY(-12px) rotate(-30deg)}}
+
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.22);
+  border-radius:20px;padding:5px 16px;
+  font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:rgba(255,255,255,.9);margin-bottom:18px;
+}
+.eyebrow-dot{width:6px;height:6px;border-radius:50%;background:#a8e89c;animation:pulse-g 2s ease-in-out infinite}
+@keyframes pulse-g{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.6)}}
+
+.hero h2{
+  font-family:'Yeseva One',serif;
+  font-size:42px;color:#fff;line-height:1.15;margin-bottom:12px;
+}
+.hero h2 span{color:#b5e8a0}
+.hero p{
+  font-size:15px;color:rgba(255,255,255,.75);
+  font-weight:400;max-width:440px;margin:0 auto 28px;line-height:1.7;
+}
+
+.hero-stats{
+  display:inline-flex;gap:0;
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);
+  border-radius:14px;overflow:hidden;
+}
+.hero-stat{
+  padding:12px 24px;text-align:center;
+  border-right:1px solid rgba(255,255,255,.12);
+}
+.hero-stat:last-child{border-right:none}
+.stat-n{display:block;font-family:'Yeseva One',serif;font-size:22px;color:#fff}
+.stat-l{display:block;font-size:10px;color:rgba(255,255,255,.65);font-weight:400;letter-spacing:.07em;text-transform:uppercase;margin-top:1px}
+
+/* ── MAIN ── */
+main{
+  position:relative;z-index:1;
+  max-width:860px;margin:-60px auto 0;
+  padding:0 22px 72px;
+}
+
+/* ── STEP BAR ── */
+.step-bar{
+  display:flex;align-items:center;
+  background:var(--white);border:1px solid var(--border);
+  border-radius:16px;padding:18px 28px;
+  box-shadow:var(--shadow-s);margin-bottom:24px;
+  gap:0;
+  animation:fadeUp .4s ease both;
+}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+.step-item{display:flex;align-items:center;gap:10px;flex:1}
+.step-item:last-child{flex:0}
+.step-circle{
+  width:32px;height:32px;border-radius:50%;
+  border:2px solid var(--border-mid);background:var(--white);
+  display:flex;align-items:center;justify-content:center;
+  font-size:13px;font-weight:700;color:var(--muted);
+  flex-shrink:0;transition:all .3s;
+}
+.step-item.active .step-circle{background:var(--green);border-color:var(--green);color:#fff;box-shadow:0 3px 12px rgba(46,125,82,.35)}
+.step-item.done  .step-circle{background:var(--green);border-color:var(--green);color:#fff}
+.step-item.done  .step-circle::after{content:'✓'}
+.step-lbl{font-size:12px;font-weight:600;color:var(--muted)}
+.step-item.active .step-lbl{color:var(--green)}
+.step-item.done  .step-lbl{color:var(--green)}
+.step-line{flex:1;height:2px;background:var(--border-mid);margin:0 10px;border-radius:1px}
+.step-line.done{background:var(--green-light)}
+
+/* ── FORM CARD ── */
+.form-card{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:20px;box-shadow:var(--shadow-m);overflow:hidden;
+  animation:fadeUp .45s ease .05s both;
+}
+
+/* ── SECTION BLOCK ── */
+.form-section{padding:26px 28px}
+.form-section+.form-section{border-top:1px solid var(--border)}
+
+.sec-title{
+  display:flex;align-items:center;gap:11px;margin-bottom:20px;
+}
+.sec-icon{
+  width:36px;height:36px;border-radius:10px;
+  background:var(--green-pale);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.sec-icon svg{width:18px;height:18px;color:var(--green)}
+.sec-title h3{
+  font-family:'Yeseva One',serif;
+  font-size:17px;color:var(--ink);
+}
+.sec-title p{font-size:12px;color:var(--muted);font-weight:400;margin-top:1px}
+
+/* ── FORM ELEMENTS ── */
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+.form-row.single{grid-template-columns:1fr}
+.form-row.triple{grid-template-columns:1fr 1fr 1fr}
+
+.form-group{display:flex;flex-direction:column;gap:5px}
+label{font-size:11px;font-weight:700;color:var(--mid);letter-spacing:.04em;text-transform:uppercase}
+.req{color:#c0392b;margin-left:2px}
+
+input,select,textarea{
+  font-family:'Nunito',sans-serif;font-size:14px;color:var(--ink);
+  background:var(--cream);border:1.5px solid var(--border-mid);
+  border-radius:10px;padding:11px 14px;outline:none;
+  transition:border-color .2s,box-shadow .2s,background .2s;
+  -webkit-appearance:none;
+}
+input:focus,select:focus,textarea:focus{
+  border-color:var(--green);background:var(--white);
+  box-shadow:0 0 0 3px rgba(46,125,82,.1);
+}
+input.err,select.err{border-color:#e74c3c!important}
+textarea{resize:vertical;min-height:80px;line-height:1.5}
+select{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%234a5e50' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 12px center;padding-right:36px;cursor:pointer;
+}
+input[type=date]::-webkit-calendar-picker-indicator{opacity:.5;cursor:pointer}
+.err-msg{font-size:11px;color:#e74c3c;display:none;margin-top:2px}
+.err-msg.show{display:block}
+
+/* ── SERVICE GRID ── */
+.service-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
+  gap:8px;margin-top:4px;
+}
+.service-pill{
+  display:flex;align-items:center;gap:8px;
+  padding:10px 12px;
+  background:var(--cream);border:1.5px solid var(--border-mid);
+  border-radius:10px;cursor:pointer;transition:all .2s;
+  user-select:none;
+}
+.service-pill:hover{border-color:var(--green-light);background:var(--green-pale)}
+.service-pill.selected{
+  background:var(--green-pale);border-color:var(--green);
+  box-shadow:0 2px 10px rgba(46,125,82,.15);
+}
+.pill-check{
+  width:18px;height:18px;border-radius:5px;flex-shrink:0;
+  border:2px solid var(--border-mid);background:var(--white);
+  display:flex;align-items:center;justify-content:center;
+  transition:all .2s;
+}
+.service-pill.selected .pill-check{background:var(--green);border-color:var(--green)}
+.pill-check svg{width:11px;height:11px;color:#fff;opacity:0;transform:scale(.5);transition:all .2s}
+.service-pill.selected .pill-check svg{opacity:1;transform:scale(1)}
+.pill-label{font-size:12px;font-weight:600;color:var(--mid)}
+.service-pill.selected .pill-label{color:var(--green-deep)}
+.service-err{font-size:11px;color:#e74c3c;margin-top:8px;display:none}
+.service-err.show{display:block}
+
+/* ── TIME SLOTS ── */
+.slots-wrap{display:flex;flex-direction:column;gap:14px}
+.slot-group-label{
+  font-size:11px;font-weight:700;color:var(--muted);
+  letter-spacing:.06em;text-transform:uppercase;
+  display:flex;align-items:center;gap:8px;margin-bottom:6px;
+}
+.slot-group-label::after{content:'';flex:1;height:1px;background:var(--border)}
+.slots-row{display:flex;flex-wrap:wrap;gap:8px}
+.slot{
+  padding:8px 14px;border:1.5px solid var(--border-mid);
+  border-radius:8px;font-size:12px;font-weight:600;
+  cursor:pointer;transition:all .2s;background:var(--cream);color:var(--mid);
+  user-select:none;
+}
+.slot:hover:not(.booked){border-color:var(--green-light);background:var(--green-pale);color:var(--green)}
+.slot.selected{background:var(--green);border-color:var(--green);color:#fff;box-shadow:0 3px 12px rgba(46,125,82,.3)}
+.slot.booked{background:#f5f5f5;color:#ccc;cursor:not-allowed;text-decoration:line-through}
+.slot-legend{display:flex;gap:16px;margin-top:10px}
+.slot-legend span{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--muted)}
+.sl-dot{width:10px;height:10px;border-radius:3px}
+.slot-err{font-size:11px;color:#e74c3c;margin-top:6px;display:none}
+.slot-err.show{display:block}
+
+/* ── VISIT MODE ── */
+.mode-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.mode-card{
+  border:1.5px solid var(--border-mid);border-radius:12px;
+  padding:14px 12px;cursor:pointer;transition:all .2s;text-align:center;
+}
+.mode-card:hover{border-color:var(--green-light);background:var(--green-pale)}
+.mode-card.selected{border-color:var(--green);background:var(--green-pale);box-shadow:0 3px 14px rgba(46,125,82,.14)}
+.mode-emoji{font-size:24px;margin-bottom:6px}
+.mode-card p{font-size:13px;font-weight:700;color:var(--ink)}
+.mode-card small{font-size:11px;color:var(--muted)}
+.mode-err{font-size:11px;color:#e74c3c;margin-top:8px;display:none}
+.mode-err.show{display:block}
+
+/* ── FORM FOOTER ── */
+.form-footer{
+  padding:20px 28px;
+  background:linear-gradient(100deg,var(--green-pale) 0%,#f0f9f4 100%);
+  border-top:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+}
+.footer-note{font-size:12px;color:var(--mid);font-weight:400;line-height:1.55;max-width:380px}
+.footer-note strong{color:var(--green-deep)}
+
+.submit-btn{
+  display:inline-flex;align-items:center;gap:10px;
+  background:linear-gradient(135deg,var(--wa) 0%,var(--wa-dark) 100%);
+  color:#fff;font-family:'Nunito',sans-serif;
+  font-size:15px;font-weight:800;
+  padding:14px 26px;border-radius:14px;border:none;cursor:pointer;
+  transition:transform .18s,box-shadow .18s;
+  box-shadow:0 6px 22px rgba(37,211,102,.38);
+  white-space:nowrap;
+}
+.submit-btn:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(37,211,102,.48)}
+.submit-btn:active{transform:translateY(0)}
+.submit-btn svg{width:22px;height:22px}
+
+/* ── SUCCESS ── */
+.success-card{
+  display:none;
+  background:var(--white);border:1px solid var(--border);
+  border-radius:20px;box-shadow:var(--shadow-l);
+  padding:52px 40px;text-align:center;
+  animation:fadeUp .5s ease both;
+}
+.success-card.show{display:block}
+.success-anim{
+  width:76px;height:76px;border-radius:50%;
+  background:linear-gradient(135deg,var(--wa) 0%,var(--wa-dark) 100%);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 20px;
+  box-shadow:0 8px 28px rgba(37,211,102,.38);
+  animation:pop .5s cubic-bezier(.34,1.56,.64,1) both;
+}
+@keyframes pop{from{transform:scale(0)}to{transform:scale(1)}}
+.success-anim svg{width:38px;height:38px;color:#fff}
+.success-card h2{
+  font-family:'Yeseva One',serif;
+  font-size:28px;color:var(--ink);margin-bottom:10px;
+}
+.success-card>p{
+  font-size:14px;color:var(--mid);line-height:1.7;
+  max-width:380px;margin:0 auto 20px;font-weight:400;
+}
+.ref-badge{
+  display:inline-block;
+  background:var(--green-pale);border:1px solid var(--green-light);
+  border-radius:8px;padding:10px 20px;
+  font-size:13px;color:var(--green-deep);font-weight:700;
+  letter-spacing:.05em;margin-bottom:24px;
+}
+.summary-box{
+  background:var(--cream);border:1px solid var(--border);border-radius:12px;
+  overflow:hidden;max-width:440px;margin:0 auto 24px;text-align:left;
+}
+.sum-row{
+  display:flex;justify-content:space-between;align-items:flex-start;
+  padding:10px 16px;border-bottom:1px solid var(--border);
+  font-size:13px;gap:12px;
+}
+.sum-row:last-child{border-bottom:none}
+.sum-row span:first-child{color:var(--muted);font-weight:400;flex-shrink:0}
+.sum-row span:last-child{color:var(--ink);font-weight:700;text-align:right}
+.wa-confirm-btn{
+  display:inline-flex;align-items:center;gap:9px;
+  background:linear-gradient(135deg,var(--wa) 0%,var(--wa-dark) 100%);
+  color:#fff;font-family:'Nunito',sans-serif;
+  font-size:14px;font-weight:800;
+  padding:13px 26px;border-radius:12px;text-decoration:none;
+  box-shadow:0 6px 22px rgba(37,211,102,.35);
+  transition:all .2s;margin-bottom:14px;
+  display:inline-flex;
+}
+.wa-confirm-btn:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(37,211,102,.48)}
+.wa-confirm-btn svg{width:20px;height:20px}
+.btn-new{
+  font-family:'Nunito',sans-serif;font-size:13px;font-weight:700;
+  color:var(--green);background:var(--green-pale);
+  border:1.5px solid var(--green-light);border-radius:10px;
+  padding:10px 22px;cursor:pointer;transition:all .2s;display:block;margin:12px auto 0;width:fit-content;
+}
+.btn-new:hover{background:var(--green);color:#fff}
+
+/* ── INFO STRIP ── */
+.info-strip{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:14px;
+  margin-top:22px;
+  animation:fadeUp .5s ease .1s both;
+}
+.info-tile{
+  background:var(--white);border:1px solid var(--border);border-radius:14px;
+  padding:16px;display:flex;gap:12px;align-items:flex-start;
+}
+.tile-icon{
+  width:36px;height:36px;border-radius:9px;
+  background:var(--green-pale);display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.tile-icon svg{width:18px;height:18px;color:var(--green)}
+.info-tile h4{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:3px}
+.info-tile p{font-size:11px;color:var(--muted);font-weight:400;line-height:1.5}
+
+/* ── WA FLOAT ── */
+.wa-float{
+  position:fixed;bottom:28px;right:28px;z-index:100;
+  width:58px;height:58px;border-radius:50%;
+  background:var(--wa);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 6px 24px rgba(37,211,102,.45);
+  text-decoration:none;
+  transition:transform .2s,box-shadow .2s;
+  animation:wa-in 1s ease 1s both;
+}
+@keyframes wa-in{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}}
+.wa-float:hover{transform:scale(1.1);box-shadow:0 10px 36px rgba(37,211,102,.55)}
+.wa-float svg{width:30px;height:30px}
+.wa-float-tooltip{
+  position:absolute;right:68px;top:50%;transform:translateY(-50%);
+  background:var(--ink);color:#fff;
+  font-size:12px;font-weight:700;white-space:nowrap;
+  padding:6px 12px;border-radius:8px;pointer-events:none;
+  opacity:0;transition:opacity .2s;
+}
+.wa-float:hover .wa-float-tooltip{opacity:1}
+
+/* ── FOOTER ── */
+footer{
+  position:relative;z-index:1;
+  background:var(--white);border-top:1px solid var(--border);
+  text-align:center;padding:20px;
+  font-size:12px;color:var(--muted);font-weight:400;
+}
+footer a{color:var(--green);text-decoration:none}
+
+/* ── RESPONSIVE ── */
+@media(max-width:680px){
+  header{padding:0 16px;height:62px}
+  .logo-text h1{font-size:16px}
+  .wa-header-btn span{display:none}
+  .hero{padding:40px 18px 90px}
+  .hero h2{font-size:28px}
+  .hero-stats{flex-wrap:wrap}
+  main{margin-top:-50px;padding:0 12px 48px}
+  .step-bar{padding:14px 16px}
+  .step-lbl{display:none}
+  .form-section{padding:18px 16px}
+  .form-row,.form-row.triple{grid-template-columns:1fr}
+  .service-grid{grid-template-columns:repeat(auto-fill,minmax(140px,1fr))}
+  .mode-grid{grid-template-columns:1fr}
+  .form-footer{flex-direction:column;align-items:stretch}
+  .submit-btn{justify-content:center}
+  .info-strip{grid-template-columns:1fr}
+  .success-card{padding:36px 20px}
+}
+</style>
+</head>
+
+<body>
+
+  <!-- Topbar Start -->
+    <div class="container-fluid bg-light ps-5 pe-0 d-none d-lg-block">
+        <div class="row gx-0">
+            <div class="col-md-6 text-center text-lg-start mb-2 mb-lg-0">
+                <div class="d-inline-flex align-items-center">
+                    <small class="py-2"><i class="far fa-clock text-primary me-2"></i>Opening Hours: Mon - Sun : 11.00 am - 5.00 pm</small>
+                </div>
+            </div>
+            <div class="col-md-6 text-center text-lg-end">
+                <div class="position-relative d-inline-flex align-items-center bg-primary text-white top-shape px-5">
+                    <div class="me-3 pe-3 border-end py-2">
+                        <p class="m-0"><i class="fa fa-envelope-open me-2"></i>info.shrihomoeopathy@gmail.com</p>
+                    </div>
+                    <div class="me-3 pe-3 border-end py-2">
+                        <p class="m-0"><i class="fa fa-phone-alt me-2"></i>+91 7038700800</p>
+                    </div>
+                    <div class="me-3 pe-3 border-end py-2">
+                        <p class="m-0"><i class="fa fa-phone-alt me-2"></i>+91 9423793643</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow-sm px-5 py-3 py-lg-0">
+        <a href="index.html" class="navbar-brand p-0">
+             <div class="logo-wrap">
+                <div class="logo-emblem">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                     <path d="M9 12l2 2 4-4"/>
+                  </svg>
+                </div>
+              <div class="logo-text">
+                 <h1>Shri Homeopathic Clinic</h1>
+                 <p>Natural Healing · Holistic Care</p>
+              </div>
+          </div>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto py-0">
+                <a href="index.html" class="nav-item nav-link active">Home</a>
+                <a href="about.html" class="nav-item nav-link">About</a>
+                <a href="service.html" class="nav-item nav-link">Service</a>
+                <a href="blog.html" class="nav-item nav-link">Blog</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                    <div class="dropdown-menu m-0">
+                        <a href="price.html" class="dropdown-item">Pricing Plan</a>
+                        <a href="team.html" class="dropdown-item">Our Homoeopathists</a>
+                        <a href="testimonial.html" class="dropdown-item">Testimonials</a>
+                        <a href="appointment.html" class="dropdown-item">Appointment</a>
+                    </div>
+                </div>
+                <a href="contact.html" class="nav-item nav-link">Contact</a>
+            </div>
+            <button type="button" class="btn text-dark" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></button>&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="https://wa.me/917038700800" target="_blank" class="wa-header-btn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.557 4.122 1.532 5.856L.057 23.571a.5.5 0 0 0 .612.612l5.715-1.475A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.001-1.369l-.359-.213-3.724.96.984-3.607-.234-.371A9.818 9.818 0 1 1 12 21.818z"/></svg>
+            <span>WhatsApp Us</span>
+  </a>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+
+<!-- HERO -->
+<div class="hero">
+  <span class="leaf-deco l1">🌿</span>
+  <span class="leaf-deco l2">🍃</span>
+  <span class="leaf-deco l3">🌱</span>
+  <span class="leaf-deco l4">🍀</span>
+
+  <div class="hero-eyebrow"><span class="eyebrow-dot"></span>Book Your Appointment</div>
+  <h2>Heal Naturally with<br><span>Homeopathy</span></h2>
+  <p>Safe, effective, and gentle treatment for the whole family. Book your consultation and receive instant confirmation on WhatsApp.</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><span class="stat-n">30+</span><span class="stat-l">Conditions Treated</span></div>
+    <div class="hero-stat"><span class="stat-n">100%</span><span class="stat-l">Natural Medicine</span></div>
+    <div class="hero-stat"><span class="stat-n">📲</span><span class="stat-l">WhatsApp Booking</span></div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<main>
+
+  <!-- STEP BAR -->
+  <div class="step-bar" id="step-bar">
+    <div class="step-item active" id="si1">
+      <div class="step-circle">1</div>
+      <span class="step-lbl">Patient Info</span>
+    </div>
+    <div class="step-line" id="sl1"></div>
+    <div class="step-item" id="si2">
+      <div class="step-circle">2</div>
+      <span class="step-lbl">Condition</span>
+    </div>
+    <div class="step-line" id="sl2"></div>
+    <div class="step-item" id="si3">
+      <div class="step-circle">3</div>
+      <span class="step-lbl">Schedule</span>
+    </div>
+    <div class="step-line" id="sl3"></div>
+    <div class="step-item" id="si4">
+      <div class="step-circle">4</div>
+      <span class="step-lbl">Confirm</span>
+    </div>
+  </div>
+
+  <!-- BOOKING FORM -->
+  <div class="form-card" id="booking-form">
+
+    <!-- ── SECTION 1: Patient Info ── -->
+    <div class="form-section">
+      <div class="sec-title">
+        <div class="sec-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <div>
+          <h3>Patient Information</h3>
+          <p>Tell us about yourself</p>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Full Name <span class="req">*</span></label>
+          <input type="text" id="f-name" placeholder="e.g. Ramesh Sharma" autocomplete="name"/>
+          <span class="err-msg" id="e-name">Please enter patient's full name.</span>
+        </div>
+        <div class="form-group">
+          <label>Age <span class="req">*</span></label>
+          <input type="number" id="f-age" placeholder="e.g. 35" min="1" max="110"/>
+          <span class="err-msg" id="e-age">Please enter a valid age.</span>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Gender <span class="req">*</span></label>
+          <select id="f-gender">
+            <option value="">Select gender</option>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+          </select>
+          <span class="err-msg" id="e-gender">Please select gender.</span>
+        </div>
+        <div class="form-group">
+          <label>WhatsApp Number <span class="req">*</span></label>
+          <input type="tel" id="f-phone" placeholder="+91 98765 43210" maxlength="15"/>
+          <span class="err-msg" id="e-phone">Please enter a valid WhatsApp number.</span>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>City / Area <span class="req">*</span></label>
+          <input type="text" id="f-city" placeholder="e.g. Pune, Kothrud"/>
+          <span class="err-msg" id="e-city">Please enter your city or area.</span>
+        </div>
+        <div class="form-group">
+          <label>Patient Type</label>
+          <select id="f-ptype">
+            <option>New Patient</option>
+            <option>Returning Patient</option>
+            <option>Child (under 12)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SECTION 2: Condition / Services ── -->
+    <div class="form-section">
+      <div class="sec-title">
+        <div class="sec-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <div>
+          <h3>Select Your Condition(s)</h3>
+          <p>Choose one or more — multiple selections allowed</p>
+        </div>
+      </div>
+
+      <div class="service-grid" id="service-grid">
+        <!-- Populated by JS -->
+      </div>
+      <span class="service-err" id="e-service">Please select at least one condition.</span>
+
+      <div class="form-row single" style="margin-top:16px">
+        <div class="form-group">
+          <label>Additional Symptoms or Notes</label>
+          <textarea id="f-notes" placeholder="Describe your symptoms, duration, or any specific concerns…"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SECTION 3: Schedule ── -->
+    <div class="form-section">
+      <div class="sec-title">
+        <div class="sec-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
+        <div>
+          <h3>Choose Date &amp; Time</h3>
+          <p>Pick your preferred appointment slot</p>
+        </div>
+      </div>
+
+      <div class="form-row" style="margin-bottom:20px">
+        <div class="form-group">
+          <label>Preferred Date <span class="req">*</span></label>
+          <input type="date" id="f-date" onchange="refreshSlots()"/>
+          <span class="err-msg" id="e-date">Please select a date.</span>
+        </div>
+        <div class="form-group">
+          <label>Consultation Mode <span class="req">*</span></label>
+          <div style="margin-top:2px">
+            <div class="mode-grid" id="mode-grid">
+              <div class="mode-card" onclick="selectMode(this,'In-Clinic Visit')">
+                <div class="mode-emoji">🏥</div>
+                <p>In-Clinic</p>
+                <small>Visit the clinic</small>
+              </div>
+              <div class="mode-card" onclick="selectMode(this,'Video Consultation')">
+                <div class="mode-emoji">📹</div>
+                <p>Video Call</p>
+                <small>Online consult</small>
+              </div>
+              <div class="mode-card" onclick="selectMode(this,'Home Visit')">
+                <div class="mode-emoji">🏠</div>
+                <p>Home Visit</p>
+                <small>Doctor visits you</small>
+              </div>
+            </div>
+            <span class="mode-err" id="e-mode">Please select a consultation mode.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Time Slots -->
+      <div class="slots-wrap">
+        <div>
+          <div class="slot-group-label">🌅 Morning Slots</div>
+          <div class="slots-row" id="slots-morning"></div>
+        </div>
+        <div>
+          <div class="slot-group-label">🌇 Evening Slots</div>
+          <div class="slots-row" id="slots-evening"></div>
+        </div>
+        <div class="slot-legend">
+          <span><div class="sl-dot" style="background:var(--green)"></div>Selected</span>
+          <span><div class="sl-dot" style="background:var(--cream);border:1px solid var(--border-mid)"></div>Available</span>
+          <span><div class="sl-dot" style="background:#f5f5f5;border:1px solid #ddd"></div>Booked</span>
+        </div>
+        <span class="slot-err" id="e-slot">Please select a time slot.</span>
+      </div>
+    </div>
+
+    <!-- ── SECTION 4: Extra ── -->
+    <div class="form-section">
+      <div class="sec-title">
+        <div class="sec-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+        </div>
+        <div>
+          <h3>Additional Information</h3>
+          <p>Optional but helpful</p>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Known Allergies / Current Medicines</label>
+          <input type="text" id="f-allergy" placeholder="e.g. Paracetamol, Metformin (optional)"/>
+        </div>
+        <div class="form-group">
+          <label>How did you hear about us?</label>
+          <select id="f-source">
+            <option value="">Select (optional)</option>
+            <option>Google Search</option>
+            <option>WhatsApp / Social Media</option>
+            <option>Friend / Family Referral</option>
+            <option>Clinic Hoarding / Banner</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row single">
+        <div class="form-group" style="flex-direction:row;align-items:center;gap:10px">
+          <input type="checkbox" id="f-consent" style="width:18px;height:18px;border-radius:4px;flex-shrink:0;cursor:pointer;background:var(--cream);border:1.5px solid var(--border-mid);accent-color:var(--green)"/>
+          <label for="f-consent" style="font-size:12px;text-transform:none;letter-spacing:0;font-weight:500;cursor:pointer;color:var(--mid)">
+            I consent to share my health information with Shri Homeopathic Clinic for treatment purposes. <span class="req">*</span>
+          </label>
+        </div>
+        <span class="err-msg" id="e-consent" style="margin-top:4px">Please provide consent to proceed.</span>
+      </div>
+    </div>
+
+    <!-- FORM FOOTER -->
+    <div class="form-footer">
+      <p class="footer-note">
+        <strong>📲 WhatsApp Confirmation:</strong> Your appointment details will be sent directly to the clinic's WhatsApp. You will receive a confirmation shortly after submitting.
+      </p>
+      <button class="submit-btn" onclick="submitBooking()">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.557 4.122 1.532 5.856L.057 23.571a.5.5 0 0 0 .612.612l5.715-1.475A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.001-1.369l-.359-.213-3.724.96.984-3.607-.234-.371A9.818 9.818 0 1 1 12 21.818z"/></svg>
+        Send via WhatsApp
+      </button>
+    </div>
+
+  </div>
+
+  <!-- SUCCESS CARD -->
+  <div class="success-card" id="success-card">
+    <div class="success-anim">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.557 4.122 1.532 5.856L.057 23.571a.5.5 0 0 0 .612.612l5.715-1.475A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.001-1.369l-.359-.213-3.724.96.984-3.607-.234-.371A9.818 9.818 0 1 1 12 21.818z"/></svg>
+    </div>
+    <h2>Booking Sent! 🎉</h2>
+    <p>Your appointment request has been prepared. Click the button below to open WhatsApp and send it to the clinic. The clinic will confirm your slot shortly.</p>
+    <div class="ref-badge" id="s-ref">Ref: SHC-000000</div>
+    <div class="summary-box" id="s-table"></div>
+    <a id="wa-final-btn" href="#" target="_blank" class="wa-confirm-btn">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.557 4.122 1.532 5.856L.057 23.571a.5.5 0 0 0 .612.612l5.715-1.475A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.001-1.369l-.359-.213-3.724.96.984-3.607-.234-.371A9.818 9.818 0 1 1 12 21.818z"/></svg>
+      Open WhatsApp &amp; Send
+    </a>
+    <button class="btn-new" onclick="resetForm()">Book Another Appointment</button>
+  </div>
+
+  <!-- INFO STRIP -->
+  <div class="info-strip">
+    <div class="info-tile">
+      <div class="tile-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.22 2.18 2 2 0 012.22 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.29 6.29l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      </div>
+      <div>
+        <h4>WhatsApp Booking</h4>
+        <p>Instant delivery of your appointment request to the clinic at +91 70387 00800.</p>
+      </div>
+    </div>
+    <div class="info-tile">
+      <div class="tile-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div>
+        <h4>Safe &amp; Natural</h4>
+        <p>100% natural homeopathic medicines. No side effects. Safe for all ages including children.</p>
+      </div>
+    </div>
+    <div class="info-tile">
+      <div class="tile-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      </div>
+      <div>
+        <h4>Mon – Sat Available</h4>
+        <p>Morning 9 AM–1 PM &amp; Evening 5–8 PM. Sunday by special appointment only.</p>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- WA FLOAT -->
+<a href="https://wa.me/917038700800?text=Hello%20Shri%20Homeopathic%20Clinic%2C%20I%20need%20help%20with%20booking%20an%20appointment." target="_blank" class="wa-float" title="Chat on WhatsApp">
+  <span class="wa-float-tooltip">Chat on WhatsApp</span>
+  <svg viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.557 4.122 1.532 5.856L.057 23.571a.5.5 0 0 0 .612.612l5.715-1.475A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.001-1.369l-.359-.213-3.724.96.984-3.607-.234-.371A9.818 9.818 0 1 1 12 21.818z"/></svg>
+</a>  
+
+<!-- Newsletter Start -->
+    <div class="container-fluid position-relative pt-5 wow fadeInUp" data-wow-delay="0.1s" style="z-index: 1;">
+        <div class="container">
+            <div class="bg-primary p-5">
+                <form class="mx-auto" style="max-width: 600px;">
+                    <div class="input-group">
+                        <input type="text" class="form-control border-white p-3" placeholder="Your Email">
+                        <button class="btn btn-dark px-4">Sign Up</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Newsletter End -->
+    
+
+<!-- Footer Start -->
+    <div class="container-fluid bg-dark text-light py-5 wow fadeInUp" data-wow-delay="0.3s" style="margin-top: -75px;">
+        <div class="container pt-5">
+            <div class="row g-5 pt-4">
+                <div class="col-lg-3 col-md-6">
+                    <h3 class="text-white mb-4">Quick Links</h3>
+                    <div class="d-flex flex-column justify-content-start">
+                        <a class="text-light mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Home</a>
+                        <a class="text-light mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>About Us</a>
+                        <a class="text-light mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Our Services</a>
+                        <a class="text-light mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Latest Blog</a>
+                        <a class="text-light" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Contact Us</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h3 class="text-white mb-4">Popular Links</h3>
+                    <div class="d-flex flex-column justify-content-start">
+                        <a class="text-light mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Home</a>
+                        <a class="text-light mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>About Us</a>
+                        <a class="text-light mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Our Services</a>
+                        <a class="text-light mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Latest Blog</a>
+                        <a class="text-light" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Contact Us</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h3 class="text-white mb-4">Get In Touch</h3>
+                    <p class="mb-2"><i class="bi bi-geo-alt text-primary me-2"></i>Bhusare Galli,  Begampur, Ghodeshwar, Solapur-413253, Maharashtra</p>
+                    <p class="mb-2"><i class="bi bi-envelope-open text-primary me-2"></i>info.shrihomoeopathy@gmail.com</p>
+                    <p class="mb-0"><i class="bi bi-telephone text-primary me-2"></i>+91 7038700800</p>
+                    <p class="mb-0"><i class="bi bi-telephone text-primary me-2"></i>+91 9423793643</p>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h3 class="text-white mb-4">Follow Us</h3>
+                    <div class="d-flex">
+                        <a class="btn btn-lg btn-primary btn-lg-square rounded me-2" href="#"><i class="fab fa-twitter fw-normal"></i></a>
+                        <a class="btn btn-lg btn-primary btn-lg-square rounded me-2" href="#"><i class="fab fa-facebook-f fw-normal"></i></a>
+                        <a class="btn btn-lg btn-primary btn-lg-square rounded me-2" href="#"><i class="fab fa-linkedin-in fw-normal"></i></a>
+                        <a class="btn btn-lg btn-primary btn-lg-square rounded" href="#"><i class="fab fa-instagram fw-normal"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid text-light py-4" style="background: #051225;">
+        <div class="container">
+            <div class="row g-0">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-md-0">&copy; <a class="text-white border-bottom" href="#">Dr. Kakade's Shri Homeopathic Clinic</a>. All Rights Reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-0">Designed by <a class="text-white border-bottom" href="https://htmlcodex.com">HTML Codex</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+<script>
+// ══════════════════════════════════════════
+//  CONFIG
+// ══════════════════════════════════════════
+const WA_NUMBER = '917038700800';
+
+// ── All 30 services ──
+const SERVICES = [
+  {id:'allergies',   label:'Allergies',         emoji:'🤧'},
+  {id:'acidity',     label:'Acidity',            emoji:'🔥'},
+  {id:'acne',        label:'Acne / Pimples',     emoji:'🌸'},
+  {id:'arthritis',   label:'Arthritis',          emoji:'🦴'},
+  {id:'joint',       label:'Joint Pains',        emoji:'💪'},
+  {id:'back',        label:'Back Pain',          emoji:'🧍'},
+  {id:'cough',       label:'Cough',              emoji:'😷'},
+  {id:'kidney',      label:'Kidney Stone',       emoji:'🫘'},
+  {id:'gout',        label:'Gout',               emoji:'🦶'},
+  {id:'hairfall',    label:'Hair Fall',          emoji:'💆'},
+  {id:'thyroid',     label:'Thyroid',            emoji:'🧬'},
+  {id:'immunity',    label:'Immunity',           emoji:'🛡️'},
+  {id:'nose',        label:'Blocked Nose',       emoji:'👃'},
+  {id:'fissures',    label:'Fissures',           emoji:'⚕️'},
+  {id:'tonsil',      label:'Tonsillitis',        emoji:'👅'},
+  {id:'sciatica',    label:'Sciatica',           emoji:'🧎'},
+  {id:'female',      label:'Female Complaints',  emoji:'🌺'},
+  {id:'stomach',     label:'Stomach Pain',       emoji:'🫃'},
+  {id:'throat',      label:'Throat Complaints',  emoji:'🗣️'},
+  {id:'skin',        label:'Skin Complaints',    emoji:'🌿'},
+  {id:'headache',    label:'Headache / Migraine',emoji:'🤕'},
+  {id:'urinary',     label:'Urinary Infections', emoji:'💧'},
+  {id:'varicose',    label:'Varicose Veins',     emoji:'🩺'},
+  {id:'corns',       label:'Corns / Warts',      emoji:'🦠'},
+  {id:'pediatric',   label:'Pediatric Diseases', emoji:'👶'},
+  {id:'constipation',label:'Constipation',       emoji:'🌾'},
+  {id:'piles',       label:'Piles',              emoji:'❤️‍🩹'},
+  {id:'gall',        label:'Gall Stone',         emoji:'🫀'},
+  {id:'sinusitis',   label:'Sinusitis',          emoji:'😤'},
+  {id:'mental',      label:'Mental Illness',     emoji:'🧠'},
+];
+
+const MORNING_SLOTS = ['9:00 AM','9:30 AM','10:00 AM','10:30 AM','11:00 AM','11:30 AM','12:00 PM','12:30 PM','1:00 PM'];
+const EVENING_SLOTS = ['5:00 PM','5:30 PM','6:00 PM','6:30 PM','7:00 PM','7:30 PM','8:00 PM'];
+
+// State
+let selectedServices = new Set();
+let selectedSlot = null;
+let selectedMode = null;
+const bookedMap = {};
+
+// ── BUILD SERVICE GRID ──
+function buildServices() {
+  const grid = document.getElementById('service-grid');
+  SERVICES.forEach(s => {
+    const pill = document.createElement('div');
+    pill.className = 'service-pill';
+    pill.dataset.id = s.id;
+    pill.innerHTML = `
+      <div class="pill-check">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <span class="pill-label">${s.emoji} ${s.label}</span>`;
+    pill.addEventListener('click', () => toggleService(pill, s.id, s.label));
+    grid.appendChild(pill);
+  });
+}
+
+function toggleService(pill, id, label) {
+  if (selectedServices.has(id)) {
+    selectedServices.delete(id);
+    pill.classList.remove('selected');
+  } else {
+    selectedServices.add(id);
+    pill.classList.add('selected');
+  }
+  updateStepIndicator();
+}
+
+// ── TIME SLOTS ──
+function getBooked(dateStr) {
+  if (!bookedMap[dateStr]) {
+    const count = Math.floor(Math.random() * 4) + 2;
+    const all = [...MORNING_SLOTS, ...EVENING_SLOTS];
+    const idxs = new Set();
+    while (idxs.size < count) idxs.add(Math.floor(Math.random() * all.length));
+    bookedMap[dateStr] = [...idxs].map(i => all[i]);
+  }
+  return bookedMap[dateStr];
+}
+
+function refreshSlots() {
+  const date = document.getElementById('f-date').value;
+  const booked = date ? getBooked(date) : [];
+  selectedSlot = null;
+
+  renderSlotRow('slots-morning', MORNING_SLOTS, booked);
+  renderSlotRow('slots-evening', EVENING_SLOTS, booked);
+  updateStepIndicator();
+}
+
+function renderSlotRow(containerId, slots, booked) {
+  const row = document.getElementById(containerId);
+  row.innerHTML = '';
+  slots.forEach(t => {
+    const d = document.createElement('div');
+    const isBooked = booked.includes(t);
+    d.className = 'slot' + (isBooked ? ' booked' : '');
+    d.textContent = t;
+    if (!isBooked) d.addEventListener('click', () => selectSlot(d, t));
+    row.appendChild(d);
+  });
+}
+
+function selectSlot(el, time) {
+  document.querySelectorAll('.slot').forEach(s => s.classList.remove('selected'));
+  el.classList.add('selected');
+  selectedSlot = time;
+  document.getElementById('e-slot').classList.remove('show');
+  updateStepIndicator();
+}
+
+// ── VISIT MODE ──
+function selectMode(el, mode) {
+  document.querySelectorAll('.mode-card').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  selectedMode = mode;
+  document.getElementById('e-mode').classList.remove('show');
+}
+
+// ── STEP INDICATOR ──
+function updateStepIndicator() {
+  const name = document.getElementById('f-name').value.trim();
+  const phone = document.getElementById('f-phone').value.trim();
+  const date = document.getElementById('f-date').value;
+  const step = name && phone ? (selectedServices.size > 0 ? (date && selectedSlot ? 4 : 3) : 2) : 1;
+  setStep(step);
+}
+
+function setStep(n) {
+  for (let i = 1; i <= 4; i++) {
+    const si = document.getElementById('si' + i);
+    si.classList.remove('active', 'done');
+    if (i < n) si.classList.add('done');
+    else if (i === n) si.classList.add('active');
+  }
+  for (let i = 1; i <= 3; i++) {
+    const sl = document.getElementById('sl' + i);
+    if (sl) sl.classList.toggle('done', i < n);
+  }
+}
+
+// ── VALIDATION ──
+function validatePhone(v) { return /^[+\d][\d\s\-]{7,14}$/.test(v.trim()); }
+
+function showErr(id, show) {
+  const el = document.getElementById(id);
+  if (el) el.classList.toggle('show', show);
+}
+function markErr(id, show) {
+  const el = document.getElementById(id);
+  if (el) el.classList.toggle('err', show);
+}
+
+// ── FORMAT DATE ──
+function fmtDate(dateStr) {
+  if (!dateStr) return '';
+  const d = new Date(dateStr + 'T12:00:00');
+  return d.toLocaleDateString('en-IN', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+}
+
+// ── BUILD WHATSAPP MESSAGE ──
+function buildWAMessage(ref, data) {
+  const servicesList = data.services.join(', ');
+  const msg = [
+    `🌿 *APPOINTMENT REQUEST*`,
+    `🏥 *Shri Homeopathic Clinic*`,
+    `Ref: ${ref}`,
+    ``,
+    `👤 *Patient Details*`,
+    `Name: ${data.name}`,
+    `Age: ${data.age} | Gender: ${data.gender}`,
+    `City: ${data.city}`,
+    `Patient Type: ${data.ptype}`,
+    ``,
+    `📋 *Condition(s) / Services*`,
+    servicesList,
+    data.notes ? `Notes: ${data.notes}` : '',
+    ``,
+    `📅 *Appointment Schedule*`,
+    `Date: ${fmtDate(data.date)}`,
+    `Time: ${data.slot}`,
+    `Mode: ${data.mode}`,
+    ``,
+    data.allergy ? `💊 Medicines/Allergies: ${data.allergy}` : '',
+    data.source ? `📢 Heard via: ${data.source}` : '',
+    ``,
+    `📱 Patient WhatsApp: ${data.phone}`,
+    ``,
+    `_Please confirm this appointment. Thank you!_ 🙏`,
+  ].filter(l => l !== '').join('\n');
+
+  return encodeURIComponent(msg);
+}
+
+// ── SUBMIT ──
+function submitBooking() {
+  let valid = true;
+
+  const name   = document.getElementById('f-name').value.trim();
+  const age    = document.getElementById('f-age').value.trim();
+  const gender = document.getElementById('f-gender').value;
+  const phone  = document.getElementById('f-phone').value.trim();
+  const city   = document.getElementById('f-city').value.trim();
+  const date   = document.getElementById('f-date').value;
+  const consent= document.getElementById('f-consent').checked;
+  const notes  = document.getElementById('f-notes').value.trim();
+  const allergy= document.getElementById('f-allergy').value.trim();
+  const source = document.getElementById('f-source').value;
+  const ptype  = document.getElementById('f-ptype').value;
+
+  // Name
+  if (!name) { showErr('e-name',true); markErr('f-name',true); valid=false; }
+  else        { showErr('e-name',false); markErr('f-name',false); }
+
+  // Age
+  if (!age || isNaN(age) || age<1 || age>110) { showErr('e-age',true); markErr('f-age',true); valid=false; }
+  else { showErr('e-age',false); markErr('f-age',false); }
+
+  // Gender
+  if (!gender) { showErr('e-gender',true); markErr('f-gender',true); valid=false; }
+  else { showErr('e-gender',false); markErr('f-gender',false); }
+
+  // Phone
+  if (!validatePhone(phone)) { showErr('e-phone',true); markErr('f-phone',true); valid=false; }
+  else { showErr('e-phone',false); markErr('f-phone',false); }
+
+  // City
+  if (!city) { showErr('e-city',true); markErr('f-city',true); valid=false; }
+  else { showErr('e-city',false); markErr('f-city',false); }
+
+  // Services
+  if (selectedServices.size === 0) { showErr('e-service',true); valid=false; }
+  else { showErr('e-service',false); }
+
+  // Date
+  if (!date) { showErr('e-date',true); markErr('f-date',true); valid=false; }
+  else { showErr('e-date',false); markErr('f-date',false); }
+
+  // Mode
+  if (!selectedMode) { showErr('e-mode',true); valid=false; }
+  else { showErr('e-mode',false); }
+
+  // Slot
+  if (!selectedSlot) { showErr('e-slot',true); valid=false; }
+  else { showErr('e-slot',false); }
+
+  // Consent
+  if (!consent) { showErr('e-consent',true); valid=false; }
+  else { showErr('e-consent',false); }
+
+  if (!valid) {
+    document.querySelector('.err, .err-msg.show, .service-err.show')?.scrollIntoView({ behavior:'smooth', block:'center' });
+    return;
+  }
+
+  // Collect selected service labels
+  const serviceLabels = [...selectedServices].map(id => {
+    const s = SERVICES.find(x => x.id === id);
+    return s ? `${s.emoji} ${s.label}` : id;
+  });
+
+  const ref = 'SHC-' + Date.now().toString().slice(-6);
+
+  const data = { name, age, gender, phone, city, ptype, services: serviceLabels, notes, date, slot: selectedSlot, mode: selectedMode, allergy, source };
+
+  // Build summary
+  const summaryRows = [
+    ['Patient', name],
+    ['Age / Gender', `${age} yrs / ${gender}`],
+    ['City', city],
+    ['Condition(s)', serviceLabels.slice(0, 3).join(', ') + (serviceLabels.length > 3 ? ` +${serviceLabels.length - 3} more` : '')],
+    ['Date', fmtDate(date)],
+    ['Time', selectedSlot],
+    ['Mode', selectedMode],
+    ['Patient WhatsApp', phone],
+  ];
+
+  document.getElementById('s-ref').textContent = 'Ref: ' + ref;
+
+  const table = document.getElementById('s-table');
+  table.innerHTML = summaryRows.map(([k, v]) =>
+    `<div class="sum-row"><span>${k}</span><span>${v}</span></div>`
+  ).join('');
+
+  // Build WA link
+  const waMsg = buildWAMessage(ref, data);
+  const waLink = `https://wa.me/${WA_NUMBER}?text=${waMsg}`;
+  document.getElementById('wa-final-btn').href = waLink;
+
+  // Show success
+  setStep(4);
+  document.getElementById('booking-form').style.display = 'none';
+  const sc = document.getElementById('success-card');
+  sc.classList.add('show');
+  sc.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+  // Auto-open WhatsApp after short delay
+  setTimeout(() => { window.open(waLink, '_blank'); }, 800);
+}
+
+// ── RESET ──
+function resetForm() {
+  document.getElementById('booking-form').style.display = '';
+  document.getElementById('success-card').classList.remove('show');
+  document.querySelectorAll('input:not([type=checkbox]),select,textarea').forEach(el => {
+    el.value = ''; el.classList.remove('err');
+  });
+  document.getElementById('f-consent').checked = false;
+  document.querySelectorAll('.err-msg,.service-err,.slot-err,.mode-err').forEach(e => e.classList.remove('show'));
+  document.querySelectorAll('.service-pill').forEach(p => p.classList.remove('selected'));
+  document.querySelectorAll('.mode-card').forEach(c => c.classList.remove('selected'));
+  document.querySelectorAll('.slot').forEach(s => s.classList.remove('selected'));
+  selectedServices.clear();
+  selectedSlot = null;
+  selectedMode = null;
+  setStep(1);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ── NAME/PHONE LISTENERS FOR STEP ──
+['f-name','f-phone'].forEach(id => {
+  document.getElementById(id)?.addEventListener('input', updateStepIndicator);
+});
+
+// ── SET MIN DATE ──
+const today = new Date().toISOString().split('T')[0];
+document.getElementById('f-date').min = today;
+
+// ── INIT ──
+buildServices();
+refreshSlots();
+</script>
+</body>
+</html>

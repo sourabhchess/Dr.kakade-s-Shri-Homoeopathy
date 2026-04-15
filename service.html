@@ -1,0 +1,1352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Services – Shri Homeopathy | Dr. Kakade</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Nunito+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --emerald:      #2d6a4f;
+  --emerald-mid:  #40916c;
+  --emerald-lt:   #74c69d;
+  --mint:         #d8f3dc;
+  --cream:        #fdfaf4;
+  --warm:         #f4ede0;
+  --amber:        #c9841a;
+  --amber-lt:     #f4a435;
+  --deep:         #0d2818;
+  --text:         #1a3326;
+  --muted:        #5a7a68;
+  --border:       #c8ddd1;
+  --white:        #ffffff;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+
+html{scroll-behavior:smooth;}
+
+body{
+  font-family:'Nunito Sans',sans-serif;
+  background:var(--cream);
+  color:var(--text);
+  overflow-x:hidden;
+}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar{width:6px;}
+::-webkit-scrollbar-track{background:var(--mint);}
+::-webkit-scrollbar-thumb{background:var(--emerald-mid);border-radius:3px;}
+
+/* ── NAV ── */
+nav{
+  position:sticky;top:0;z-index:200;
+  background:rgba(253,250,244,0.96);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 2.5rem;height:70px;
+}
+.nav-logo{display:flex;align-items:center;gap:0.85rem;text-decoration:none;}
+.logo-circle{
+  width:44px;height:44px;border-radius:50%;
+  background:linear-gradient(135deg,var(--emerald-mid),var(--emerald));
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Playfair Display',serif;
+  color:#fff;font-size:1.3rem;font-style:italic;font-weight:700;
+  box-shadow:0 4px 14px rgba(45,106,79,0.35);
+}
+.logo-text .main{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;color:var(--deep);}
+.logo-text .sub{font-size:0.68rem;color:var(--muted);letter-spacing:0.14em;text-transform:uppercase;}
+.nav-links{display:flex;gap:2rem;list-style:none;}
+.nav-links a{
+  text-decoration:none;font-size:0.84rem;color:var(--muted);
+  letter-spacing:0.03em;transition:color .2s;font-weight:500;
+}
+.nav-links a:hover,.nav-links a.active{color:var(--emerald);}
+.nav-cta{
+  background:var(--emerald);color:#fff;border:none;
+  padding:0.55rem 1.4rem;border-radius:30px;
+  font-size:0.82rem;cursor:pointer;
+  font-family:'Nunito Sans',sans-serif;font-weight:600;
+  transition:background .2s,transform .15s;letter-spacing:0.03em;
+}
+.nav-cta:hover{background:var(--deep);transform:translateY(-1px);}
+
+/* ── HERO ── */
+.hero{
+  background:var(--deep);
+  color:#fff;
+  padding:6rem 2rem 5rem;
+  text-align:center;
+  position:relative;overflow:hidden;
+}
+.hero-bg-circles{
+  position:absolute;inset:0;pointer-events:none;
+}
+.hero-bg-circles span{
+  position:absolute;border-radius:50%;
+  border:1px solid rgba(116,198,157,0.12);
+}
+.hero-bg-circles span:nth-child(1){width:500px;height:500px;top:-150px;left:-100px;}
+.hero-bg-circles span:nth-child(2){width:400px;height:400px;bottom:-120px;right:-80px;}
+.hero-bg-circles span:nth-child(3){width:280px;height:280px;top:40px;right:200px;border-color:rgba(201,132,26,0.12);}
+.hero-glow{
+  position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 55% 60% at 15% 55%,rgba(64,145,108,0.22) 0%,transparent 70%),
+    radial-gradient(ellipse 40% 50% at 85% 25%,rgba(201,132,26,0.14) 0%,transparent 65%);
+}
+.leaf-dots{
+  position:absolute;inset:0;opacity:0.035;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Ccircle cx='20' cy='20' r='2' fill='%23fff'/%3E%3C/svg%3E");
+  background-size:40px 40px;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  border:1px solid rgba(116,198,157,0.4);
+  color:var(--emerald-lt);font-size:0.72rem;
+  letter-spacing:0.18em;text-transform:uppercase;
+  padding:0.4rem 1.1rem;border-radius:30px;margin-bottom:1.6rem;
+}
+.hero-badge .dot{width:6px;height:6px;background:var(--emerald-lt);border-radius:50%;}
+.hero h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.4rem,5.5vw,4.2rem);
+  font-weight:700;line-height:1.12;
+  margin-bottom:1.1rem;
+}
+.hero h1 em{font-style:italic;color:var(--amber-lt);}
+.hero .sub{
+  font-size:1.05rem;color:rgba(255,255,255,0.6);
+  max-width:560px;margin:0 auto 1.6rem;line-height:1.75;font-weight:300;
+}
+.hero-stats{
+  display:flex;gap:2.5rem;justify-content:center;flex-wrap:wrap;
+  margin-top:2.5rem;
+}
+.stat{text-align:center;}
+.stat .num{
+  font-family:'Playfair Display',serif;
+  font-size:2.2rem;font-weight:700;color:var(--emerald-lt);
+  line-height:1;
+}
+.stat .lbl{font-size:0.72rem;color:rgba(255,255,255,0.5);letter-spacing:0.1em;text-transform:uppercase;margin-top:0.3rem;}
+.stat-sep{width:1px;background:rgba(255,255,255,0.12);align-self:stretch;}
+
+/* ── INTRO STRIP ── */
+.intro-strip{
+  background:var(--emerald);
+  display:flex;align-items:center;justify-content:center;
+  gap:2rem;padding:1.2rem 2rem;flex-wrap:wrap;
+}
+.intro-strip .pill{
+  display:flex;align-items:center;gap:0.5rem;
+  color:rgba(255,255,255,0.85);font-size:0.83rem;font-weight:500;
+}
+.intro-strip .pill svg{opacity:0.75;}
+
+/* ── SEARCH / FILTER ── */
+.filter-section{
+  padding:3rem 2rem 1rem;
+  max-width:1000px;margin:0 auto;text-align:center;
+}
+.filter-section h2{
+  font-family:'Playfair Display',serif;
+  font-size:1.8rem;font-weight:600;color:var(--deep);margin-bottom:0.5rem;
+}
+.filter-section p{font-size:0.9rem;color:var(--muted);margin-bottom:1.8rem;}
+.search-bar{
+  display:flex;align-items:center;
+  background:var(--white);border:1.5px solid var(--border);
+  border-radius:50px;padding:0.6rem 1.3rem;gap:0.7rem;
+  max-width:480px;margin:0 auto 1.8rem;
+  box-shadow:0 4px 20px rgba(45,106,79,0.08);
+  transition:border-color .2s,box-shadow .2s;
+}
+.search-bar:focus-within{border-color:var(--emerald-mid);box-shadow:0 4px 24px rgba(45,106,79,0.15);}
+.search-bar input{
+  border:none;outline:none;flex:1;
+  font-size:0.88rem;color:var(--text);background:none;
+  font-family:'Nunito Sans',sans-serif;
+}
+.search-bar input::placeholder{color:#aab8b2;}
+.cat-filters{display:flex;flex-wrap:wrap;gap:0.6rem;justify-content:center;}
+.cf-btn{
+  border:1.5px solid var(--border);background:var(--white);
+  color:var(--muted);font-size:0.78rem;padding:0.4rem 1rem;
+  border-radius:30px;cursor:pointer;transition:all .2s;
+  font-family:'Nunito Sans',sans-serif;font-weight:500;
+}
+.cf-btn:hover,.cf-btn.active{
+  background:var(--emerald);border-color:var(--emerald);color:#fff;
+}
+
+/* ── SERVICES GRID ── */
+.services-section{
+  max-width:1260px;margin:0 auto;padding:2.5rem 2rem 5rem;
+}
+.section-label{
+  font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--amber);margin-bottom:1rem;
+  display:flex;align-items:center;gap:0.6rem;
+}
+.section-label::after{content:'';flex:1;height:1px;background:var(--border);}
+
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(290px,1fr));
+  gap:1.6rem;
+}
+
+.scard{
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:18px;
+  overflow:hidden;
+  transition:transform .25s,box-shadow .25s,border-color .25s;
+  cursor:pointer;
+  position:relative;
+}
+.scard:hover{
+  transform:translateY(-5px);
+  box-shadow:0 16px 40px rgba(13,40,24,0.12);
+  border-color:var(--emerald-lt);
+}
+.scard::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  opacity:0;transition:opacity .25s;
+}
+.scard:hover::before{opacity:1;}
+
+/* colour themes per category */
+.t-green .scard::before{background:linear-gradient(90deg,var(--emerald),var(--emerald-lt));}
+.t-amber .scard::before{background:linear-gradient(90deg,var(--amber),var(--amber-lt));}
+.t-teal  .scard::before{background:linear-gradient(90deg,#1a7a7a,#4ec9c9);}
+.t-rose  .scard::before{background:linear-gradient(90deg,#8b2252,#d46fa0);}
+.t-blue  .scard::before{background:linear-gradient(90deg,#1a4a8b,#5a8fd4);}
+.t-violet.scard::before{background:linear-gradient(90deg,#5c2d8b,#a47dd4);}
+
+.scard-top{
+  padding:1.5rem 1.5rem 1rem;
+  display:flex;align-items:flex-start;gap:1rem;
+}
+.scard-icon{
+  width:52px;height:52px;border-radius:12px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.6rem;
+}
+.t-green .scard-icon{background:linear-gradient(135deg,#d8f3dc,#b7e4c7);}
+.t-amber .scard-icon{background:linear-gradient(135deg,#fef3e2,#fde4b2);}
+.t-teal  .scard-icon{background:linear-gradient(135deg,#d9f7f7,#a5e8e8);}
+.t-rose  .scard-icon{background:linear-gradient(135deg,#fce4f0,#f5b8d8);}
+.t-blue  .scard-icon{background:linear-gradient(135deg,#dce8fc,#b2cef5);}
+.t-violet.scard-icon{background:linear-gradient(135deg,#ecdcfc,#d4b2f5);}
+
+.scard-info h3{
+  font-family:'Playfair Display',serif;
+  font-size:1.05rem;font-weight:600;
+  color:var(--deep);margin-bottom:0.25rem;line-height:1.25;
+}
+.scard-tag{
+  display:inline-block;
+  font-size:0.67rem;letter-spacing:0.1em;text-transform:uppercase;
+  padding:0.15rem 0.55rem;border-radius:20px;font-weight:600;
+}
+.t-green .scard-tag{background:#d8f3dc;color:var(--emerald);}
+.t-amber .scard-tag{background:#fef3e2;color:var(--amber);}
+.t-teal  .scard-tag{background:#d9f7f7;color:#1a7a7a;}
+.t-rose  .scard-tag{background:#fce4f0;color:#8b2252;}
+.t-blue  .scard-tag{background:#dce8fc;color:#1a4a8b;}
+.t-violet.scard-tag{background:#ecdcfc;color:#5c2d8b;}
+
+.scard-body{
+  padding:0 1.5rem 1.4rem;
+  font-size:0.83rem;color:var(--muted);line-height:1.7;
+}
+.scard-footer{
+  padding:0.9rem 1.5rem;
+  border-top:1px solid rgba(200,221,209,0.5);
+  display:flex;align-items:center;justify-content:space-between;
+}
+.scard-remedy{
+  font-size:0.72rem;color:var(--emerald);font-weight:600;
+  display:flex;align-items:center;gap:0.3rem;
+}
+.learn-link{
+  font-size:0.75rem;color:var(--muted);
+  display:flex;align-items:center;gap:0.3rem;
+  transition:color .2s;text-decoration:none;cursor:pointer;
+}
+.scard:hover .learn-link{color:var(--emerald);}
+
+/* ── MANY MORE BUTTON ── */
+.more-wrap{
+  text-align:center;padding:1rem 0 4rem;
+}
+.more-btn{
+  display:inline-flex;align-items:center;gap:0.7rem;
+  background:linear-gradient(135deg,var(--emerald),var(--emerald-mid));
+  color:#fff;border:none;
+  padding:0.9rem 2.2rem;border-radius:50px;
+  font-size:0.9rem;font-weight:600;cursor:pointer;
+  font-family:'Nunito Sans',sans-serif;
+  box-shadow:0 8px 28px rgba(45,106,79,0.3);
+  transition:transform .2s,box-shadow .2s;letter-spacing:0.04em;
+}
+.more-btn:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(45,106,79,0.4);}
+.more-btn .plus{
+  width:26px;height:26px;background:rgba(255,255,255,0.2);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:1.1rem;line-height:1;
+}
+
+/* ── WHY HOMEOPATHY ── */
+.why-section{
+  background:var(--deep);color:#fff;
+  padding:5rem 2rem;
+  position:relative;overflow:hidden;
+}
+.why-section::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 60% 80% at 80% 50%,rgba(64,145,108,0.15) 0%,transparent 70%);
+  pointer-events:none;
+}
+.why-inner{max-width:1100px;margin:0 auto;}
+.why-head{margin-bottom:3rem;}
+.why-head .eyebrow{
+  font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--emerald-lt);margin-bottom:0.8rem;
+}
+.why-head h2{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;
+  line-height:1.2;
+}
+.why-head h2 em{font-style:italic;color:var(--amber-lt);}
+.why-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+  gap:1.4rem;
+}
+.why-card{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:14px;padding:1.8rem 1.5rem;
+  transition:background .25s,border-color .25s;
+}
+.why-card:hover{background:rgba(116,198,157,0.08);border-color:rgba(116,198,157,0.25);}
+.why-icon{font-size:2rem;margin-bottom:1rem;}
+.why-card h4{
+  font-family:'Playfair Display',serif;
+  font-size:1rem;font-weight:600;margin-bottom:0.5rem;color:#fff;
+}
+.why-card p{font-size:0.82rem;color:rgba(255,255,255,0.5);line-height:1.7;}
+
+/* ── CTA SECTION ── */
+.cta-section{
+  background:linear-gradient(135deg,var(--warm) 0%,var(--mint) 100%);
+  padding:4.5rem 2rem;text-align:center;
+}
+.cta-section h2{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:700;
+  color:var(--deep);margin-bottom:0.8rem;
+}
+.cta-section p{font-size:0.95rem;color:var(--muted);max-width:480px;margin:0 auto 2rem;line-height:1.7;}
+.cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+.btn-primary{
+  background:var(--emerald);color:#fff;border:none;
+  padding:0.85rem 2rem;border-radius:50px;font-size:0.88rem;font-weight:600;
+  cursor:pointer;font-family:'Nunito Sans',sans-serif;
+  transition:background .2s,transform .15s;
+  box-shadow:0 6px 20px rgba(45,106,79,0.28);
+}
+.btn-primary:hover{background:var(--deep);transform:translateY(-2px);}
+.btn-outline{
+  background:transparent;color:var(--emerald);
+  border:2px solid var(--emerald);
+  padding:0.83rem 2rem;border-radius:50px;font-size:0.88rem;font-weight:600;
+  cursor:pointer;font-family:'Nunito Sans',sans-serif;transition:all .2s;
+}
+.btn-outline:hover{background:var(--emerald);color:#fff;}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--deep);color:rgba(255,255,255,0.5);
+  text-align:center;padding:2rem;
+  font-size:0.8rem;line-height:2;
+  border-top:1px solid rgba(255,255,255,0.06);
+}
+footer strong{color:rgba(255,255,255,0.85);}
+
+/* ── MODAL ── */
+.modal-overlay{
+  position:fixed;inset:0;background:rgba(13,40,24,0.7);
+  z-index:500;display:flex;align-items:center;justify-content:center;
+  padding:1.5rem;opacity:0;pointer-events:none;transition:opacity .3s;
+  backdrop-filter:blur(6px);
+}
+.modal-overlay.open{opacity:1;pointer-events:all;}
+.modal{
+  background:var(--white);border-radius:20px;max-width:560px;width:100%;
+  overflow:hidden;transform:translateY(20px);
+  transition:transform .3s;
+  box-shadow:0 30px 80px rgba(13,40,24,0.3);
+}
+.modal-overlay.open .modal{transform:translateY(0);}
+.modal-head{
+  padding:2rem 2rem 1.2rem;
+  display:flex;gap:1.2rem;align-items:flex-start;
+  border-bottom:1px solid var(--border);
+}
+.modal-icon{
+  width:60px;height:60px;border-radius:14px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-size:2rem;
+}
+.modal-title h2{
+  font-family:'Playfair Display',serif;
+  font-size:1.45rem;font-weight:700;color:var(--deep);margin-bottom:0.3rem;
+}
+.modal-title .tag{font-size:0.72rem;color:var(--emerald);font-weight:600;}
+.modal-body{padding:1.5rem 2rem 2rem;}
+.modal-body p{font-size:0.88rem;color:var(--muted);line-height:1.75;margin-bottom:1rem;}
+.modal-body h4{
+  font-family:'Playfair Display',serif;
+  font-size:1rem;color:var(--deep);margin:1.2rem 0 0.6rem;
+}
+.symptom-list{
+  display:flex;flex-wrap:wrap;gap:0.4rem;margin-bottom:1rem;
+}
+.symptom-list span{
+  background:var(--mint);color:var(--emerald);
+  font-size:0.73rem;padding:0.3rem 0.7rem;border-radius:20px;font-weight:600;
+}
+.modal-footer{
+  padding:1.2rem 2rem;background:var(--warm);
+  display:flex;gap:0.8rem;flex-wrap:wrap;
+}
+.mf-btn-primary{
+  flex:1;background:var(--emerald);color:#fff;border:none;
+  padding:0.7rem 1rem;border-radius:30px;font-size:0.85rem;font-weight:600;
+  cursor:pointer;font-family:'Nunito Sans',sans-serif;transition:background .2s;
+}
+.mf-btn-primary:hover{background:var(--deep);}
+.mf-btn-close{
+  border:1.5px solid var(--border);background:transparent;
+  color:var(--muted);padding:0.7rem 1.2rem;border-radius:30px;
+  font-size:0.85rem;cursor:pointer;font-family:'Nunito Sans',sans-serif;
+  transition:all .2s;
+}
+.mf-btn-close:hover{border-color:var(--muted);color:var(--deep);}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(24px);}
+  to{opacity:1;transform:translateY(0);}
+}
+.hero>*{animation:fadeUp .7s ease both;}
+.hero .hero-badge{animation-delay:.05s;}
+.hero h1{animation-delay:.15s;}
+.hero .sub{animation-delay:.25s;}
+.hero .hero-stats{animation-delay:.38s;}
+
+.scard{opacity:0;animation:fadeUp .55s ease both;}
+
+/* ── RESPONSIVE ── */
+@media(max-width:860px){
+  .services-grid{grid-template-columns:repeat(auto-fill,minmax(240px,1fr));}
+  .nav-links{display:none;}
+}
+@media(max-width:540px){
+  .services-grid{grid-template-columns:1fr;}
+  .hero-stats{gap:1.5rem;}
+  .stat-sep{display:none;}
+  nav{padding:0 1.2rem;}
+}
+
+/* no-results */
+.no-results{
+  text-align:center;padding:4rem 1rem;color:var(--muted);
+  display:none;
+  grid-column:1/-1;
+}
+.no-results.show{display:block;}
+.no-results .icon{font-size:3rem;margin-bottom:1rem;opacity:.4;}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">
+    <div class="logo-circle">S</div>
+    <div class="logo-text">
+      <div class="main">Shri Homeopathy</div>
+      <div class="sub">Dr. Kakade's Clinic · Solapur</div>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="service.html" class="active">Services</a></li>
+    <li><a href="shri-homeopathy-blog.html">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <button class="nav-cta" href="Appointment.html">📅 Book Appointment</button>
+</nav>
+
+<!-- HERO -->a
+<header class="hero">
+  <div class="hero-bg-circles">
+    <span></span><span></span><span></span>
+  </div>
+  <div class="hero-glow"></div>
+  <div class="leaf-dots"></div>
+  <div class="hero-badge"><span class="dot"></span> Specialised Homeopathic Care</div>
+  <h1>Healing Every Condition,<br><em>Naturally &amp; Gently</em></h1>
+  <p class="sub">Dr. Kakade's Shri Homeopathy treats 33+ conditions with classical homeopathic remedies — safe, side-effect free, and lasting results.</p>
+  <div class="hero-stats">
+    <div class="stat"><div class="num">20+</div><div class="lbl">Years Experience</div></div>
+    <div class="stat-sep"></div>
+    <div class="stat"><div class="num">33+</div><div class="lbl">Conditions Treated</div></div>
+    <div class="stat-sep"></div>
+    <div class="stat"><div class="num">10K+</div><div class="lbl">Patients Healed</div></div>
+    <div class="stat-sep"></div>
+    <div class="stat"><div class="num">100%</div><div class="lbl">Natural Remedies</div></div>
+  </div>
+</header>
+
+<!-- STRIP -->
+<div class="intro-strip">
+  <div class="pill">
+    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+    No Side Effects
+  </div>
+  <div class="pill">
+    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+    Treats Root Cause
+  </div>
+  <div class="pill">
+    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+    Safe for All Ages
+  </div>
+  <div class="pill">
+    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+    Personalised Treatment
+  </div>
+  <div class="pill">
+    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+    Affordable Care
+  </div>
+</div>
+
+<!-- SEARCH & FILTER -->
+<section class="filter-section">
+  <h2>Our Specialised Services</h2>
+  <p>Browse treatments by category or search for your condition below</p>
+  <div class="search-bar">
+    <svg width="16" height="16" fill="none" stroke="#aab8b2" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    <input type="text" id="searchInput" placeholder="Search condition e.g. Arthritis, Thyroid…"/>
+    <button onclick="document.getElementById('searchInput').value='';filterServices('','All')" style="background:none;border:none;cursor:pointer;color:#aab8b2;font-size:1.1rem;">✕</button>
+  </div>
+  <div class="cat-filters">
+    <button class="cf-btn active" onclick="filterServices('','All')">All Conditions</button>
+    <button class="cf-btn" onclick="filterServices('','Digestive')">Digestive</button>
+    <button class="cf-btn" onclick="filterServices('','Skin & Hair')">Skin &amp; Hair</button>
+    <button class="cf-btn" onclick="filterServices('','Women\'s Health')">Women's Health</button>
+    <button class="cf-btn" onclick="filterServices('','Joints & Bones')">Joints &amp; Bones</button>
+    <button class="cf-btn" onclick="filterServices('','Respiratory')">Respiratory</button>
+    <button class="cf-btn" onclick="filterServices('','Urinary')">Urinary</button>
+    <button class="cf-btn" onclick="filterServices('','Mental Health')">Mental Health</button>
+    <button class="cf-btn" onclick="filterServices('','Paediatric')">Paediatric</button>
+  </div>
+</section>
+
+<!-- SERVICES GRID -->
+<section class="services-section">
+  <div class="section-label">✦ All Conditions Treated</div>
+  <div class="services-grid" id="servicesGrid">
+
+    <!-- 1 -->
+    <div class="scard t-teal" data-cat="Respiratory" data-name="Allergies"
+      onclick="openModal('Allergies','🤧','Respiratory','Allergies occur when the immune system reacts abnormally to harmless substances like dust, pollen, foods, or pet dander, triggering sneezing, rashes, itching, or breathing difficulties.','Homeopathy treats allergies at the root — the hypersensitive immune system — rather than just suppressing symptoms. Constitutional remedies like Apis Mellifica, Natrum Mur, and Allium Cepa are selected based on your individual symptom pattern, bringing lasting desensitisation and relief.','Sneezing,Itchy eyes,Runny nose,Skin rash,Breathing difficulty,Hives,Watery eyes','Apis Mellifica, Natrum Mur, Allium Cepa')">
+      <div class="scard-top">
+        <div class="scard-icon">🤧</div>
+        <div class="scard-info">
+          <h3>Allergies</h3>
+          <span class="scard-tag">Respiratory</span>
+        </div>
+      </div>
+      <div class="scard-body">Immune hypersensitivity to dust, pollen, foods, or environment — treated from the root with constitutional remedies.</div>
+      <div class="scard-footer">
+        <span class="scard-remedy">🌿 Allium Cepa, Natrum Mur</span>
+        <span class="learn-link">Details →</span>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="scard t-green" data-cat="Urinary" data-name="Kidney Stone"
+      onclick="openModal('Kidney Stone','🫘','Urinary','Kidney stones are hard mineral and salt deposits that form inside the kidneys and cause excruciating pain while passing through the urinary tract.','Homeopathic medicines such as Berberis Vulgaris, Cantharis, and Lycopodium help dissolve stones, ease passage, relieve renal colic pain, and reduce recurrence by correcting the underlying metabolic tendency.','Severe flank pain,Blood in urine,Nausea,Frequent urination,Burning urination,Gravel in urine','Berberis Vulgaris, Lycopodium, Cantharis')">
+      <div class="scard-top">
+        <div class="scard-icon">🫘</div>
+        <div class="scard-info">
+          <h3>Kidney Stone</h3>
+          <span class="scard-tag">Urinary</span>
+        </div>
+      </div>
+      <div class="scard-body">Dissolves renal calculi and eases painful passage while addressing the metabolic cause to prevent recurrence.</div>
+      <div class="scard-footer">
+        <span class="scard-remedy">🌿 Berberis Vulgaris, Lycopodium</span>
+        <span class="learn-link">Details →</span>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="scard t-rose" data-cat="Women's Health" data-name="Female Complaints"
+      onclick="openModal('Female Complaints','👩','Women\'s Health','Female health complaints include irregular periods, painful menstruation (dysmenorrhoea), PCOD, leucorrhoea, menopause symptoms, and hormonal imbalances that significantly impact daily life.','Homeopathy offers deep hormonal correction through remedies like Sepia, Pulsatilla, and Lachesis — selected on the totality of physical, emotional, and hormonal symptoms for lasting reproductive health.','Irregular periods,Painful cramps,PCOD,Leucorrhoea,Mood swings,Hormonal imbalance,Menopausal symptoms','Sepia, Pulsatilla, Lachesis, Calcarea Carb')">
+      <div class="scard-top">
+        <div class="scard-icon">👩</div>
+        <div class="scard-info">
+          <h3>Female Complaints</h3>
+          <span class="scard-tag">Women's Health</span>
+        </div>
+      </div>
+      <div class="scard-body">Menstrual irregularities, PCOD, leucorrhoea, and menopause — holistic hormonal balance through constitutional remedies.</div>
+      <div class="scard-footer">
+        <span class="scard-remedy">🌿 Sepia, Pulsatilla, Lachesis</span>
+        <span class="learn-link">Details →</span>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="scard t-amber" data-cat="Digestive" data-name="Acidity"
+      onclick="openModal('Acidity / GERD','🔥','Digestive','Acidity and gastroesophageal reflux occur when excess stomach acid rises into the oesophagus, causing heartburn, bloating, belching, and sour taste — often triggered by diet, stress, or H. pylori.','Homeopathy targets the constitutional tendency towards acid overproduction. Nux Vomica for stress-related acidity, Robinia for sour belching, Natrum Phos for hyperacidity — all without antacid dependency.','Heartburn,Bloating,Belching,Sour taste,Burning stomach,Nausea after eating','Nux Vomica, Robinia, Natrum Phos, Lycopodium')">
+      <div class="scard-top">
+        <div class="scard-icon">🔥</div>
+        <div class="scard-info">
+          <h3>Acidity / GERD</h3>
+          <span class="scard-tag">Digestive</span>
+        </div>
+      </div>
+      <div class="scard-body">Chronic heartburn, bloating, and acid reflux corrected without antacid dependency through targeted constitutional care.</div>
+      <div class="scard-footer">
+        <span class="scard-remedy">🌿 Nux Vomica, Robinia</span>
+        <span class="learn-link">Details →</span>
+      </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="scard t-green" data-cat="Joints & Bones" data-name="Gout"
+      onclick="openModal('Gout','💢','Joints & Bones','Gout is a type of inflammatory arthritis caused by elevated uric acid levels depositing as crystals in joints — most commonly the big toe — causing sudden, severe pain and swelling.','Colchicum, Ledum Palustre, and Benzoic Acid are key homeopathic remedies that reduce serum uric acid, dissolve joint crystals, relieve acute attacks, and prevent future gout episodes.','Sudden severe joint pain,Red swollen joints,Big toe pain,Tenderness on touch,Fever during attack,Limited mobility','Colchicum, Ledum Palustre, Benzoic Acid')">
+      <div class="scard-top">
+        <div class="scard-icon">💢</div>
+        <div class="scard-info">
+          <h3>Gout</h3>
+          <span class="scard-tag">Joints &amp; Bones</span>
+        </div>
+      </div>
+      <div class="scard-body">Uric acid crystal deposits causing intense joint pain — dissolved and corrected through metabolic constitutional treatment.</div>
+      <div class="scard-footer">
+        <span class="scard-remedy">🌿 Colchicum, Ledum Palustre</span>
+        <span class="learn-link">Details →</span>
+      </div>
+    </div>
+
+    <!-- 6 -->
+    <div class="scard t-amber" data-cat="Digestive" data-name="Stomach Pain"
+      onclick="openModal('Stomach Pain','🤒','Digestive','Abdominal and stomach pain can arise from gastritis, IBS, spasm, infections, or food intolerances and can significantly disrupt daily comfort and nutrition.','Homeopathy individualises the prescription based on the character, timing, and triggers of pain. Colocynthis for colic, Magnesia Phos for cramps, Nux Vomica for after-eating pain — all providing rapid, lasting relief.','Cramping,Bloating,Pain before/after meals,Spasms,Gas,Nausea,Loss of appetite','Colocynthis, Magnesia Phos, Nux Vomica')">
+      <div class="scard-top">
+        <div class="scard-icon">🤒</div>
+        <div class="scard-info">
+          <h3>Stomach Pain</h3>
+          <span class="scard-tag">Digestive</span>
+        </div>
+      </div>
+      <div class="scard-body">Cramping, colicky, or chronic abdominal discomfort resolved with targeted remedies addressing underlying digestive weakness.</div>
+      <div class="scard-footer">
+        <span class="scard-remedy">🌿 Colocynthis, Magnesia Phos</span>
+        <span class="learn-link">Details →</span>
+      </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="scard t-rose" data-cat="Skin & Hair" data-name="Acne"
+      onclick="openModal('Acne','😤','Skin & Hair','Acne is a chronic skin condition involving clogged pores, excess sebum, bacterial overgrowth, and inflammation — causing pimples, blackheads, and cysts, often leaving scars.','Homeopathy treats acne internally — correcting hormonal imbalances, skin microbiome, and sebum regulation. Sulphur, Hepar Sulph, and Pulsatilla provide deep cleansing without topical chemicals.','Pimples,Blackheads,Whiteheads,Cysts,Oily skin,Redness,Post-acne scars','Sulphur, Hepar Sulph, Pulsatilla, Kali Brom')">
+      <div class="scard-top">
+        <div class="scard-icon">😤</div>
+        <div class="scard-info">
+          <h3>Acne</h3>
+          <span class="scard-tag">Skin &amp; Hair</span>
+        </div>
+      </div>
+      <div class="scard-body">Deep internal correction of hormonal and sebaceous imbalances causing acne — clearer skin from within, no harsh chemicals.</div>
+      <div class="scard-footer">
+        <span class="scard-remedy">🌿 Sulphur, Hepar Sulph</span>
+        <span class="learn-link">Details →</span>
+      </div>
+    </div>
+
+    <!-- 8 -->
+    <div class="scard t-green" data-cat="Joints & Bones" data-name="Uric Acid"
+      onclick="openModal('Uric Acid','🧪','Joints & Bones','Elevated serum uric acid (hyperuricaemia) leads to gout, kidney stones, joint inflammation, and tophi deposits if left untreated.','Homeopathy reduces uric acid production and improves renal excretion using Benzoic Acid, Urtica Urens, and Lycopodium — correcting the metabolic root cause without long-term NSAID use.','High uric acid levels,Joint pain,Kidney stones,Fatigue,Swollen joints,Tophi deposits','Benzoic Acid, Urtica Urens, Lycopodium')">
+      <div class="scard-top">
+        <div class="scard-icon">🧪</div>
+        <div class="scard-info">
+          <h3>Uric Acid</h3>
+          <span class="scard-tag">Joints &amp; Bones</span>
+        </div>
+      </div>
+      <div class="scard-body">Corrects purine metabolism and promotes renal excretion of uric acid, preventing gout and joint crystal deposits.</div>
+      <div class="scard-footer">
+        <span class="scard-remedy">🌿 Benzoic Acid, Urtica Urens</span>
+        <span class="learn-link">Details →</span>
+      </div>
+    </div>
+
+    <!-- 9 -->
+    <div class="scard t-rose" data-cat="Skin & Hair" data-name="Pimples"
+      onclick="openModal('Pimples','🌋','Skin & Hair','Pimples are inflamed or infected sebaceous glands on the skin — often worsened by hormonal changes, diet, stress, and poor gut health.','Individualised homeopathic treatment with Kali Bromatum for pustular pimples, Silicea for suppurating pimples, and Calcarea Sulph for yellow discharge pimples — all without steroid creams.','Inflamed red pimples,Pustules,Cystic pimples,Blackheads,Facial oiliness,Pimple scars','Kali Brom, Silicea, Calcarea Sulph')">
+      <div class="scard-top">
+        <div class="scard-icon">🌋</div>
+        <div class="scard-info">
+          <h3>Pimples</h3>
+          <span class="scard-tag">Skin &amp; Hair</span>
+        </div>
+      </div>
+      <div class="scard-body">Targeted remedies for inflamed, cystic, or hormonal pimples — clearer skin through internal constitutional correction.</div>
+      <div class="scard-footer">
+        <span class="scard-remedy">🌿 Kali Brom, Silicea</span>
+        <span class="learn-link">Details →</span>
+      </div>
+    </div>
+
+    <!-- 10 -->
+    <div class="scard t-rose" data-cat="Skin & Hair" data-name="Hair Fall"
+      onclick="openModal('Hair Fall','💇','Skin & Hair','Hair fall (alopecia) can result from nutritional deficiencies, hormonal imbalances, thyroid dysfunction, stress, or scalp conditions — affecting confidence and quality of life.','Homeopathy addresses the root constitutional and miasmatic factors. Phosphoric Acid for grief-related hair loss, Natrum Mur for post-delivery fall, Lycopodium for premature baldness — comprehensive scalp and follicle repair.','Excessive hair loss,Thinning hair,Bald patches,Scalp itching,Dandruff,Weak brittle hair','Phosphoric Acid, Natrum Mur, Lycopodium, Wiesbaden')">
+      <div class="scard-top">
+        <div class="scard-icon">💇</div>
+        <div class="scard-info">
+          <h3>Hair Fall</h3>
+          <span class="scard-tag">Skin &amp; Hair</span>
+        </div>
+      </div>
+      <div class="scard-body">Constitutional treatment for alopecia, scalp health, and follicle regeneration — restoring thick, healthy hair naturally.</div>
+      <div class="scard-footer">
+        <span class="scard-remedy">🌿 Phosphoric Acid, Lycopodium</span>
+        <span class="learn-link">Details →</span>
+      </div>
+    </div>
+
+    <!-- 11 -->
+    <div class="scard t-green" data-cat="Joints & Bones" data-name="Arthritis"
+      onclick="openModal('Arthritis','🦴','Joints & Bones','Arthritis encompasses over 100 joint diseases — rheumatoid arthritis, osteoarthritis, and psoriatic arthritis — causing pain, stiffness, swelling, and progressive joint destruction if untreated.','Homeopathy slows arthritic degeneration, relieves inflammation, and restores mobility. Rhus Tox for stiffness better with motion, Bryonia for pain worse with motion, and Calcarea Carb for constitutional correction.','Joint pain,Swelling,Morning stiffness,Warmth in joints,Limited range of motion,Joint deformity','Rhus Tox, Bryonia, Calcarea Carb, Apis Mel')">
+      <div class="scard-top">
+        <div class="scard-icon">🦴</div>
+        <div class="scard-info">
+          <h3>Arthritis</h3>
+          <span class="scard-tag">Joints &amp; Bones</span>
+        </div>
+      </div>
+      <div class="scard-body">Reduces joint inflammation, relieves pain and stiffness, and slows arthritic degeneration through constitutional homeopathic care.</div>
+      <div class="scard-footer">
+        <span class="scard-remedy">🌿 Rhus Tox, Bryonia</span>
+        <span class="learn-link">Details →</span>
+      </div>
+    </div>
+
+    <!-- 12 -->
+    <div class="scard t-teal" data-cat="Digestive" data-name="Thyroid"
+      onclick="openModal('Thyroid Disorders','🦋','Metabolic','Thyroid disorders — hypothyroidism, hyperthyroidism, and Hashimoto thyroiditis — disrupt metabolism, energy, weight, mood, and nearly every organ system.','Homeopathy corrects the autoimmune or constitutional imbalance driving thyroid dysfunction. Iodum for hyperthyroidism, Calcarea Carb for hypothyroidism, Thyroidinum as a nosode — safe adjuncts that many patients use to reduce allopathic dose over time.','Fatigue,Weight gain/loss,Cold intolerance,Hair loss,Brain fog,Goitre,Palpitations','Iodum, Calcarea Carb, Thyroidinum, Natrum Mur')">
+      <div class="scard-top">
+        <div class="scard-icon">🦋</div>
+        <div class="scard-info">
+          <h3>Thyroid</h3>
+          <span class="scard-tag">Metabolic</span>
+        </div>
+      </div>
+      <div class="scard-body">Balances hypo and hyperthyroid states, reduces goitre, and corrects autoimmune thyroid dysfunction constitutionally.</div>
+      <div class="scard-footer">
+        <span class="scard-remedy">🌿 Calcarea Carb, Iodum</span>
+        <span class="learn-link">Details →</span>
+      </div>
+    </div>
+
+    <!-- 13 -->
+    <div class="scard t-green" data-cat="Respiratory" data-name="Immunity"
+      onclick="openModal('Low Immunity','🛡️','General Health','Recurrent infections, slow healing, chronic fatigue, and frequent illnesses indicate a compromised immune system that needs deep constitutional strengthening.','Homeopathy rebuilds immunity from within using miasmatic and constitutional remedies like Tuberculinum, Thuja, Sulphur, and Calcarea Carb — reducing susceptibility to infections significantly over time.','Frequent colds,Slow healing,Recurrent infections,Fatigue,Low energy,Chronic allergies','Tuberculinum, Thuja, Sulphur, Calcarea Carb')">
+      <div class="scard-top">
+        <div class="scard-icon">🛡️</div>
+        <div class="scard-info">
+          <h3>Immunity</h3>
+          <span class="scard-tag">General Health</span>
+        </div>
+      </div>
+      <div class="scard-body">Deep constitutional immune strengthening — fewer infections, faster recovery, better energy and resilience to disease.</div>
+      <div class="scard-footer">
+        <span class="scard-remedy">🌿 Tuberculinum, Calcarea Carb</span>
+        <span class="learn-link">Details →</span>
+      </div>
+    </div>
+
+    <!-- 14 -->
+    <div class="scard t-teal" data-cat="Respiratory" data-name="Throat Complaints"
+      onclick="openModal('Throat Complaints','🗣️','Respiratory','Recurrent sore throat, tonsillitis, throat irritation, voice hoarseness, and chronic pharyngitis cause repeated discomfort and antibiotic dependency.','Homeopathy eliminates the recurrent tendency using Belladonna for acute inflammation, Hepar Sulph for suppurating tonsils, and Baryta Carb for chronic throat susceptibility in children — avoiding repeated antibiotics.','Sore throat,Hoarse voice,Difficulty swallowing,Swollen glands,Throat irritation,Cough','Belladonna, Hepar Sulph, Baryta Carb, Lachesis')">
+      <div class="scard-top">
+        <div class="scard-icon">🗣️</div>
+        <div class="scard-info">
+          <h3>Throat Complaints</h3>
+          <span class="scard-tag">Respiratory</span>
+        </div>
+      </div>
+      <div class="scard-body">Chronic sore throat, hoarseness, and recurrent pharyngitis treated to eliminate the susceptibility — not just the episode.</div>
+      <div class="scard-footer">
+        <span class="scard-remedy">🌿 Belladonna, Hepar Sulph</span>
+        <span class="learn-link">Details →</span>
+      </div>
+    </div>
+
+    <!-- 15 -->
+    <div class="scard t-rose" data-cat="Skin & Hair" data-name="Skin Complaints"
+      onclick="openModal('Skin Complaints','🌡️','Skin & Hair','Skin conditions like eczema, psoriasis, urticaria, ringworm, and dermatitis are often chronic, recurring, and conventionally managed only with steroids — which suppress rather than cure.','Homeopathy offers genuine curative treatment for skin diseases by addressing the internal miasmatic disposition. Graphites for weeping eczema, Sulphur for itchy rashes, Arsenicum Album for dry scaly skin.','Itching,Rashes,Redness,Scaling,Weeping skin,Dryness,Hives,Blisters','Sulphur, Graphites, Arsenicum Album, Mezereum')">
+      <div class="scard-top">
+        <div class="scard-icon">🌡️</div>
+        <div class="scard-info">
+          <h3>Skin Complaints</h3>
+          <span class="scard-tag">Skin &amp; Hair</span>
+        </div>
+      </div>
+      <div class="scard-body">Eczema, psoriasis, urticaria, ringworm — deep constitutional cure without steroid suppression, addressing miasmatic roots.</div>
+      <div class="scard-footer">
+        <span class="scard-remedy">🌿 Sulphur, Graphites</span>
+        <span class="learn-link">Details →</span>
+      </div>
+    </div>
+
+    <!-- 16 -->
+    <div class="scard t-violet" data-cat="Mental Health" data-name="Headache"
+      onclick="openModal('Headache / Migraine','🤕','Neurological','Migraines and chronic headaches affect millions — causing debilitating pain, nausea, light sensitivity, and visual disturbances, often triggered by stress, hormones, or foods.','Homeopathy offers excellent results for migraines with Belladonna for throbbing headaches, Gelsemium for dull band-like pain, Sanguinaria for right-sided migraines, and Iris Versicolor for sick headaches with vomiting.','Throbbing pain,Nausea,Light sensitivity,Aura,One-sided pain,Vomiting,Visual disturbances','Belladonna, Sanguinaria, Iris Versicolor, Gelsemium')">
+      <div class="scard-top">
+        <div class="scard-icon">🤕</div>
+        <div class="scard-info">
+          <h3>Headache / Migraine</h3>
+          <span class="scard-tag">Neurological</span>
+        </div>
+      </div>
+      <div class="scard-body">Highly effective constitutional treatment for chronic migraines — reducing frequency, severity, and duration of attacks.</div>
+      <div class="scard-footer">
+        <span class="scard-remedy">🌿 Belladonna, Sanguinaria</span>
+        <span class="learn-link">Details →</span>
+      </div>
+    </div>
+
+    <!-- 17 -->
+    <div class="scard t-green" data-cat="Joints & Bones" data-name="Joint Pains"
+      onclick="openModal('Joint Pains','🦵','Joints & Bones','Joint pains can result from arthritis, injury, inflammation, overuse, or autoimmune conditions — affecting knees, hips, shoulders, and wrists and limiting mobility significantly.','Based on symptom modalities, homeopathic remedies like Rhus Tox (better with movement), Bryonia (worse with movement), Arnica (post-injury), and Ruta (ligament strain) provide targeted joint pain relief.','Pain in joints,Swelling,Stiffness,Cracking sounds,Limited movement,Warmth in joint','Rhus Tox, Bryonia, Arnica, Ruta')">
+      <div class="scard-top">
+        <div class="scard-icon">🦵</div>
+        <div class="scard-info">
+          <h3>Joint Pains</h3>
+          <span class="scard-tag">Joints &amp; Bones</span>
+        </div>
+      </div>
+      <div class="scard-body">Targeted relief for knee, shoulder, hip, and wrist joint pains — restoring mobility and reducing inflammation naturally.</div>
+      <div class="scard-footer">
+        <span class="scard-remedy">🌿 Rhus Tox, Arnica, Ruta</span>
+        <span class="learn-link">Details →</span>
+      </div>
+    </div>
+
+    <!-- 18 -->
+    <div class="scard t-teal" data-cat="Urinary" data-name="Urinary Infections"
+      onclick="openModal('Urinary Infections (UTI)','💧','Urinary','Urinary tract infections cause burning urination, frequent urges, cloudy or foul-smelling urine, and pelvic discomfort — women are particularly susceptible to recurrent UTIs.','Cantharis and Apis Mellifica provide rapid relief for acute UTIs while constitutional remedies like Staphysagria for recurrent UTIs and Equisetum for persistent bladder irritation eliminate the underlying tendency.','Burning urination,Frequent urge,Cloudy urine,Pelvic pain,Incomplete voiding,Blood in urine','Cantharis, Apis Mel, Staphysagria, Equisetum')">
+      <div class="scard-top">
+        <div class="scard-icon">💧</div>
+        <div class="scard-info">
+          <h3>Urinary Infections</h3>
+          <span class="scard-tag">Urinary</span>
+        </div>
+      </div>
+      <div class="scard-body">Rapid relief for burning UTI symptoms and deep constitutional treatment to eliminate recurrent urinary tract infections.</div>
+      <div class="scard-footer">
+        <span class="scard-remedy">🌿 Cantharis, Staphysagria</span>
+        <span class="learn-link">Details →</span>
+      </div>
+    </div>
+
+    <!-- 19 -->
+    <div class="scard t-green" data-cat="Joints & Bones" data-name="Back Pain"
+      onclick="openModal('Back Pain','🔙','Joints & Bones','Back pain — lumbar, thoracic, or cervical — affects 80% of adults at some point, arising from disc disease, muscle strain, spondylitis, or nerve compression.','Homeopathy selects remedies based on the exact character and modalities of pain: Rhus Tox for stiffness, Hypericum for nerve pain, Bryonia for worse-with-movement pain, and Kali Carb for weakness in the back.','Lower back pain,Stiffness,Radiating pain,Muscle spasm,Pain on bending,Tingling in legs','Rhus Tox, Hypericum, Bryonia, Kali Carb')">
+      <div class="scard-top">
+        <div class="scard-icon">🔙</div>
+        <div class="scard-info">
+          <h3>Back Pain</h3>
+          <span class="scard-tag">Joints &amp; Bones</span>
+        </div>
+      </div>
+      <div class="scard-body">Lumbar, cervical, and thoracic back pain — including spondylitis and disc problems — resolved through precise homeopathic prescribing.</div>
+      <div class="scard-footer">
+        <span class="scard-remedy">🌿 Rhus Tox, Hypericum</span>
+        <span class="learn-link">Details →</span>
+      </div>
+    </div>
+
+    <!-- 20 -->
+    <div class="scard t-teal" data-cat="Respiratory" data-name="Cough"
+      onclick="openModal('Cough','😮‍💨','Respiratory','Chronic or recurrent cough — whether dry, productive, allergic, or post-infectious — can be debilitating, especially if conventional medicine only offers suppressants without curing the underlying cause.','Homeopathy provides remarkable results: Drosera for spasmodic cough, Phosphorus for laryngeal cough, Ipecac for cough with vomiting, and Antimonium Tart for rattling chest cough in children and elderly.','Dry cough,Wet productive cough,Night cough,Spasmodic cough,Wheezing,Chest tightness','Drosera, Phosphorus, Ipecac, Antimonium Tart')">
+      <div class="scard-top">
+        <div class="scard-icon">😮‍💨</div>
+        <div class="scard-info">
+          <h3>Cough</h3>
+          <span class="scard-tag">Respiratory</span>
+        </div>
+      </div>
+      <div class="scard-body">Chronic, spasmodic, allergic, or recurrent cough treated at source — not just suppressed — with precise homeopathic remedies.</div>
+      <div class="scard-footer">
+        <span class="scard-remedy">🌿 Drosera, Phosphorus</span>
+        <span class="learn-link">Details →</span>
+      </div>
+    </div>
+
+    <!-- 21 -->
+    <div class="scard t-violet" data-cat="Mental Health" data-name="Sex Related Issues"
+      onclick="openModal('Sexual Health Issues','🔒','Men\'s Health','Sexual health problems including erectile dysfunction, premature ejaculation, low libido, spermatorrhoea, and infertility affect men\'s confidence and relationships profoundly.','Homeopathy addresses the physical and psychological components simultaneously. Agnus Castus for impotency with anxiety, Selenium for exhaustion after intercourse, Lycopodium for performance anxiety — all with complete privacy and dignity.','Low libido,Premature ejaculation,Erectile dysfunction,Weakness,Infertility,Anxiety around intimacy','Agnus Castus, Selenium, Lycopodium, Caladium')">
+      <div class="scard-top">
+        <div class="scard-icon">🔒</div>
+        <div class="scard-info">
+          <h3>Sexual Health Issues</h3>
+          <span class="scard-tag">Men's Health</span>
+        </div>
+      </div>
+      <div class="scard-body">Confidential, dignified homeopathic treatment for erectile dysfunction, premature ejaculation, low libido, and infertility.</div>
+      <div class="scard-footer">
+        <span class="scard-remedy">🌿 Agnus Castus, Lycopodium</span>
+        <span class="learn-link">Details →</span>
+      </div>
+    </div>
+
+    <!-- 22 -->
+    <div class="scard t-teal" data-cat="Respiratory" data-name="Blocked Nose"
+      onclick="openModal('Blocked Nose / Nasal Congestion','👃','Respiratory','Chronic nasal congestion, post-nasal drip, and blocked nose — often linked to allergic rhinitis, sinusitis, or nasal polyps — disrupt sleep, breathing, and quality of life.','Ammonium Carb for complete nasal blockage at night, Sambucus for suffocative nasal congestion, Kali Bich for thick ropy discharge, and Lemna Minor for nasal polyps — targeted, gentle relief.','Stuffy nose,Mouth breathing,Post-nasal drip,Snoring,Reduced smell,Headache,Polyps','Ammonium Carb, Kali Bich, Sambucus, Lemna Minor')">
+      <div class="scard-top">
+        <div class="scard-icon">👃</div>
+        <div class="scard-info">
+          <h3>Blocked Nose</h3>
+          <span class="scard-tag">Respiratory</span>
+        </div>
+      </div>
+      <div class="scard-body">Chronic nasal congestion, polyps, and post-nasal drip cleared with targeted homeopathic remedies — breathe freely again.</div>
+      <div class="scard-footer">
+        <span class="scard-remedy">🌿 Kali Bich, Lemna Minor</span>
+        <span class="learn-link">Details →</span>
+      </div>
+    </div>
+
+    <!-- 23 -->
+    <div class="scard t-blue" data-cat="Digestive" data-name="Varicose Veins"
+      onclick="openModal('Varicose Veins','🫀','Circulatory','Varicose veins are twisted, enlarged veins — most common in legs — causing pain, heaviness, swelling, and skin changes; if neglected, they progress to venous ulcers.','Homeopathy strengthens vein wall tone and improves venous circulation. Hamamelis for congested veins with soreness, Calcarea Fluor for hard dilated veins, Pulsatilla for wandering venous pains — avoiding surgical intervention in early stages.','Twisted visible veins,Leg heaviness,Aching,Swelling,Itching over veins,Night cramps,Skin discolouration','Hamamelis, Calcarea Fluor, Pulsatilla, Vipera')">
+      <div class="scard-top">
+        <div class="scard-icon">🫀</div>
+        <div class="scard-info">
+          <h3>Varicose Veins</h3>
+          <span class="scard-tag">Circulatory</span>
+        </div>
+      </div>
+      <div class="scard-body">Improves venous tone and circulation, reduces swelling and pain of varicose veins — avoiding surgical intervention in early stages.</div>
+      <div class="scard-footer">
+        <span class="scard-remedy">🌿 Hamamelis, Calcarea Fluor</span>
+        <span class="learn-link">Details →</span>
+      </div>
+    </div>
+
+    <!-- 24 -->
+    <div class="scard t-amber" data-cat="Digestive" data-name="Fissures"
+      onclick="openModal('Anal Fissures','🩹','Digestive','Anal fissures are painful tears in the anal lining causing severe pain during and after bowel movements, bright red bleeding, and spasm — severely affecting quality of life.','Homeopathy heals fissures without surgery. Nitric Acid for splinter-like rectal pain, Ratanhia for fissures with burning after stool, and Graphites for fissures with constipation — providing remarkable relief.','Sharp rectal pain,Bleeding during stool,Burning sensation,Constipation,Spasm,Itching','Nitric Acid, Ratanhia, Graphites, Paeonia')">
+      <div class="scard-top">
+        <div class="scard-icon">🩹</div>
+        <div class="scard-info">
+          <h3>Fissures</h3>
+          <span class="scard-tag">Digestive</span>
+        </div>
+      </div>
+      <div class="scard-body">Anal fissures healed without surgery — pain, bleeding, and spasm resolved with precise constitutional homeopathic remedies.</div>
+      <div class="scard-footer">
+        <span class="scard-remedy">🌿 Nitric Acid, Ratanhia</span>
+        <span class="learn-link">Details →</span>
+      </div>
+    </div>
+
+    <!-- 25 -->
+    <div class="scard t-rose" data-cat="Skin & Hair" data-name="Corns"
+      onclick="openModal('Corns & Warts','🦶','Skin & Hair','Corns are thickened painful skin over pressure points on feet; warts are viral skin growths (HPV) that appear on hands, feet, or genitals and can spread.','Homeopathy dissolves warts and corns internally. Thuja Occidentalis is the foremost wart remedy; Antimonium Crudum for hard horny corns; Causticum for old warts; Nitric Acid for bleeding warts — no burning or cutting.','Hard painful corns,Multiple warts,Plantar warts,Finger warts,Verrucas,Burning on pressure','Thuja, Antimonium Crudum, Causticum, Nitric Acid')">
+      <div class="scard-top">
+        <div class="scard-icon">🦶</div>
+        <div class="scard-info">
+          <h3>Corns &amp; Warts</h3>
+          <span class="scard-tag">Skin &amp; Hair</span>
+        </div>
+      </div>
+      <div class="scard-body">Internal dissolution of corns and warts without burning, cutting, or laser — cleared gently through proven homeopathic remedies.</div>
+      <div class="scard-footer">
+        <span class="scard-remedy">🌿 Thuja, Antimonium Crud</span>
+        <span class="learn-link">Details →</span>
+      </div>
+    </div>
+
+    <!-- 26 -->
+    <div class="scard t-amber" data-cat="Digestive" data-name="Constipation"
+      onclick="openModal('Constipation','⚡','Digestive','Chronic constipation — infrequent, hard, or incomplete bowel movements — causes abdominal discomfort, toxin accumulation, piles, and fissures if not corrected.','Homeopathy corrects bowel peristalsis and gut tone rather than depending on laxatives. Nux Vomica for ineffectual urging, Alumina for no urge even with soft stool, and Bryonia for large dry hard stools — long-lasting relief.','Infrequent stools,Hard dry stools,Straining,Bloating,No urge,Incomplete evacuation','Nux Vomica, Alumina, Bryonia, Opium')">
+      <div class="scard-top">
+        <div class="scard-icon">⚡</div>
+        <div class="scard-info">
+          <h3>Constipation</h3>
+          <span class="scard-tag">Digestive</span>
+        </div>
+      </div>
+      <div class="scard-body">Restores natural gut motility and bowel tone — permanent relief from chronic constipation without laxative dependency.</div>
+      <div class="scard-footer">
+        <span class="scard-remedy">🌿 Nux Vomica, Alumina</span>
+        <span class="learn-link">Details →</span>
+      </div>
+    </div>
+
+    <!-- 27 -->
+    <div class="scard t-teal" data-cat="Paediatric" data-name="Tonsillitis"
+      onclick="openModal('Tonsillitis','😷','Paediatric','Recurrent tonsillitis — swollen, inflamed, pus-filled tonsils — is extremely common in children and often leads to repeated antibiotic courses or tonsillectomy recommendation.','Homeopathy eliminates the recurrent tendency completely. Baryta Carb for children with chronic tonsil enlargement, Belladonna for acute severe tonsillitis, Hepar Sulph for pus formation, Phytolacca for pain radiating to ears — avoiding surgery.','Swollen tonsils,Sore throat,Difficulty swallowing,Pus on tonsils,Fever,Ear pain,Bad breath','Baryta Carb, Belladonna, Hepar Sulph, Phytolacca')">
+      <div class="scard-top">
+        <div class="scard-icon">😷</div>
+        <div class="scard-info">
+          <h3>Tonsillitis</h3>
+          <span class="scard-tag">Paediatric</span>
+        </div>
+      </div>
+      <div class="scard-body">Eliminates recurrent tonsillitis in children — reducing antibiotic dependency and often avoiding tonsillectomy altogether.</div>
+      <div class="scard-footer">
+        <span class="scard-remedy">🌿 Baryta Carb, Belladonna</span>
+        <span class="learn-link">Details →</span>
+      </div>
+    </div>
+
+    <!-- 28 -->
+    <div class="scard t-blue" data-cat="Paediatric" data-name="Pediatric Diseases"
+      onclick="openModal('Paediatric Diseases','👶','Paediatric','Children are vulnerable to recurrent infections, growth delays, behavioural issues, eczema, bedwetting, ADHD, and developmental concerns — often over-medicated with antibiotics and steroids.','Homeopathy is ideally suited for children — safe, sweet, and gentle. Calcarea Carb for developmental delays, Chamomilla for irritable teething infants, Tuberculinum for recurrent respiratory infections — building lifelong immunity.','Recurrent colds,Bed wetting,Growth issues,ADHD,Eczema,Digestive problems,Teething trouble','Calcarea Carb, Chamomilla, Tuberculinum, Baryta Carb')">
+      <div class="scard-top">
+        <div class="scard-icon">👶</div>
+        <div class="scard-info">
+          <h3>Paediatric Diseases</h3>
+          <span class="scard-tag">Paediatric</span>
+        </div>
+      </div>
+      <div class="scard-body">Safe, sweet, gentle remedies for children — recurrent infections, bedwetting, ADHD, eczema, and developmental concerns addressed naturally.</div>
+      <div class="scard-footer">
+        <span class="scard-remedy">🌿 Calcarea Carb, Chamomilla</span>
+        <span class="learn-link">Details →</span>
+      </div>
+    </div>
+
+    <!-- 29 -->
+    <div class="scard t-amber" data-cat="Digestive" data-name="Piles"
+      onclick="openModal('Piles / Haemorrhoids','🩺','Digestive','Piles (haemorrhoids) are swollen vascular cushions in and around the anus causing bleeding, pain, itching, and prolapse — worsened by constipation, straining, and low-fibre diet.','Homeopathy is a widely recognised effective treatment for piles. Aesculus for blind piles with backache, Aloe Socotrina for protruding grapes-like piles, Hamamelis for bleeding piles, Nux Vomica for piles with constipation — no banding needed.','Bright red rectal bleeding,Itching,Pain during stool,Prolapsed haemorrhoids,Mucous discharge,Constipation','Aesculus, Aloe, Hamamelis, Nux Vomica')">
+      <div class="scard-top">
+        <div class="scard-icon">🩺</div>
+        <div class="scard-info">
+          <h3>Piles / Haemorrhoids</h3>
+          <span class="scard-tag">Digestive</span>
+        </div>
+      </div>
+      <div class="scard-body">Highly effective homeopathic treatment for bleeding, prolapsed, or blind piles — proven results, no banding or surgery needed.</div>
+      <div class="scard-footer">
+        <span class="scard-remedy">🌿 Aesculus, Hamamelis</span>
+        <span class="learn-link">Details →</span>
+      </div>
+    </div>
+
+    <!-- 30 -->
+    <div class="scard t-blue" data-cat="Joints & Bones" data-name="Sciatica"
+      onclick="openModal('Sciatica','⚡','Neurological','Sciatica is radiating pain along the sciatic nerve — from the lower back through the hip and down the leg — caused by disc herniation, spinal stenosis, or piriformis syndrome.','Colocynthis for sciatica relieved by hard pressure, Magnesia Phos for lightning-like shooting pains, Hypericum for nerve injury pain, and Gnaphalium for sciatic pain with numbness — powerful nerve pain relief.','Radiating leg pain,Burning shooting pain,Numbness,Tingling,Muscle weakness,Pain on sitting','Colocynthis, Magnesia Phos, Hypericum, Gnaphalium')">
+      <div class="scard-top">
+        <div class="scard-icon">⚡</div>
+        <div class="scard-info">
+          <h3>Sciatica</h3>
+          <span class="scard-tag">Neurological</span>
+        </div>
+      </div>
+      <div class="scard-body">Shooting, burning sciatic nerve pain and numbness relieved through targeted neurological homeopathic prescribing.</div>
+      <div class="scard-footer">
+        <span class="scard-remedy">🌿 Colocynthis, Hypericum</span>
+        <span class="learn-link">Details →</span>
+      </div>
+    </div>
+
+    <!-- 31 -->
+    <div class="scard t-violet" data-cat="Mental Health" data-name="Mental Illness"
+      onclick="openModal('Mental Illness','🧠','Mental Health','Mental health conditions — depression, anxiety disorders, OCD, phobias, grief, insomnia, and stress — significantly impair functioning and are often chronically managed with allopathic medication.','Homeopathy treats the whole mind-body continuum. Ignatia for grief and emotional shocks, Aurum Met for depression, Argentum Nitricum for anxiety and OCD, Natrum Mur for suppressed emotions — restoring genuine mental wellbeing.','Depression,Anxiety,Insomnia,OCD,Grief,Phobia,Mood swings,Irritability,Brain fog','Ignatia, Aurum Met, Argentum Nit, Natrum Mur')">
+      <div class="scard-top">
+        <div class="scard-icon">🧠</div>
+        <div class="scard-info">
+          <h3>Mental Illness</h3>
+          <span class="scard-tag">Mental Health</span>
+        </div>
+      </div>
+      <div class="scard-body">Depression, anxiety, OCD, grief, insomnia — restored mind-body wellbeing through deep constitutional emotional healing.</div>
+      <div class="scard-footer">
+        <span class="scard-remedy">🌿 Ignatia, Aurum Met</span>
+        <span class="learn-link">Details →</span>
+      </div>
+    </div>
+
+    <!-- 32 -->
+    <div class="scard t-green" data-cat="Digestive" data-name="Gall Stone"
+      onclick="openModal('Gall Stones','🪨','Digestive','Gallstones are hardened deposits in the gallbladder causing biliary colic, nausea, intolerance of fatty foods, and jaundice — surgery is often recommended but not always necessary.','Chelidonium Majus is the foremost liver and gallbladder remedy in homeopathy; Lycopodium for right-sided hepatic pain; Calcarea Carb for cholesterol stones; Berberis Vulgaris for renal and biliary calculi — avoiding cholecystectomy in early cases.','Right-sided upper pain,Nausea,Fatty food intolerance,Jaundice,Bitter taste,Bloating','Chelidonium, Lycopodium, Calcarea Carb, Berberis')">
+      <div class="scard-top">
+        <div class="scard-icon">🪨</div>
+        <div class="scard-info">
+          <h3>Gall Stone</h3>
+          <span class="scard-tag">Digestive</span>
+        </div>
+      </div>
+      <div class="scard-body">Dissolves and manages gallstones — relieves biliary colic and prevents surgical intervention in early-stage cases.</div>
+      <div class="scard-footer">
+        <span class="scard-remedy">🌿 Chelidonium, Lycopodium</span>
+        <span class="learn-link">Details →</span>
+      </div>
+    </div>
+
+    <!-- 33 -->
+    <div class="scard t-teal" data-cat="Respiratory" data-name="Sinusitis"
+      onclick="openModal('Sinusitis','🌬️','Respiratory','Sinusitis — inflammation of the paranasal sinuses — causes facial pain, pressure, nasal blockage, thick discharge, and headache; chronic sinusitis recurs despite repeated antibiotics.','Kali Bichromicum for thick ropy greenish sinus discharge, Hydrastis for post-nasal drip, Silicea for recurring sinusitis with pus, and Spigelia for severe frontal sinus headache — clearing sinuses constitutionally.','Facial pain/pressure,Nasal blockage,Thick discharge,Headache,Post-nasal drip,Loss of smell,Tooth pain','Kali Bich, Hydrastis, Silicea, Spigelia')">
+      <div class="scard-top">
+        <div class="scard-icon">🌬️</div>
+        <div class="scard-info">
+          <h3>Sinusitis</h3>
+          <span class="scard-tag">Respiratory</span>
+        </div>
+      </div>
+      <div class="scard-body">Chronic and recurrent sinusitis cleared without repeated antibiotics — facial pressure, headache, and discharge resolved constitutionally.</div>
+      <div class="scard-footer">
+        <span class="scard-remedy">🌿 Kali Bich, Hydrastis</span>
+        <span class="learn-link">Details →</span>
+      </div>
+    </div>
+
+    <div class="no-results" id="noResults">
+      <div class="icon">🔍</div>
+      <p>No conditions found for your search.<br>Please try a different keyword.</p>
+    </div>
+  </div>
+
+  <!-- MANY MORE BUTTON -->
+  <div class="more-wrap">
+    <button class="more-btn" onclick="showMoreModal()">
+      <span class="plus">+</span>
+      Many More Conditions Treated — Ask Dr. Kakade
+    </button>
+  </div>
+</section>
+
+<!-- WHY HOMEOPATHY -->
+<section class="why-section">
+  <div class="why-inner">
+    <div class="why-head">
+      <div class="eyebrow">✦ Why Choose Homeopathy</div>
+      <h2>The <em>Shri Homeopathy</em> Difference</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">🎯</div>
+        <h4>Treats the Root Cause</h4>
+        <p>Homeopathy addresses the underlying constitutional weakness and not just surface symptoms — bringing lasting cure rather than temporary relief.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🌿</div>
+        <h4>Zero Side Effects</h4>
+        <p>100% natural plant, mineral, and animal-based micro-doses — completely safe for infants, pregnant women, elderly, and those with multiple conditions.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">👤</div>
+        <h4>Personalised to You</h4>
+        <p>Dr. Kakade carefully studies your entire symptom picture — mental, physical, and emotional — to find your unique constitutional remedy.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🔬</div>
+        <h4>Science-Backed Practice</h4>
+        <p>Over 200 years of documented clinical evidence and 20+ years of Dr. Kakade's personal practice with thousands of cured patients.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">💊</div>
+        <h4>Reduces Allopathic Load</h4>
+        <p>Many patients are able to gradually reduce conventional medications under medical supervision as homeopathic treatment progresses.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">💰</div>
+        <h4>Affordable Long-term Care</h4>
+        <p>Highly cost-effective compared to lifelong allopathic medication, repeated investigations, and surgical interventions for chronic conditions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2>Ready to Start Your<br>Healing Journey?</h2>
+  <p>Book a consultation with Dr. Kakade today and experience the power of natural, personalised homeopathic care.</p>
+  <div class="cta-btns">
+    <button class="btn-primary">📅 Book Appointment</button>
+    <button class="btn-outline">📞 Call the Clinic</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <strong>Shri Homeopathy Clinic</strong> · Dr. Kakade · Solapur, Maharashtra<br>
+  📞 +91 XXXXX XXXXX &nbsp;|&nbsp; 📧 info@shrihomeopathy.in<br>
+  <small style="opacity:0.45">© 2026 Shri Homeopathy. All rights reserved. Content is for educational purposes only and not a substitute for professional medical advice.</small>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModalOutside(event)">
+  <div class="modal" id="modal">
+    <div class="modal-head">
+      <div class="modal-icon" id="mIcon"></div>
+      <div class="modal-title">
+        <h2 id="mTitle"></h2>
+        <div class="tag" id="mCat"></div>
+      </div>
+    </div>
+    <div class="modal-body">
+      <p id="mDesc"></p>
+      <h4>How Homeopathy Helps</h4>
+      <p id="mTreat"></p>
+      <h4>Common Symptoms Treated</h4>
+      <div class="symptom-list" id="mSymptoms"></div>
+      <h4>Key Homeopathic Remedies</h4>
+      <div class="symptom-list" id="mRemedies"></div>
+    </div>
+    <div class="modal-footer">
+      <button class="mf-btn-primary">📅 Book for This Condition</button>
+      <button class="mf-btn-close" onclick="closeModal()">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- MANY MORE MODAL -->
+<div class="modal-overlay" id="moreModalOverlay" onclick="closeMoreModal(event)">
+  <div class="modal">
+    <div class="modal-head">
+      <div class="modal-icon" style="background:linear-gradient(135deg,#d8f3dc,#b7e4c7);font-size:2rem;">🌿</div>
+      <div class="modal-title">
+        <h2>Many More Conditions</h2>
+        <div class="tag" style="color:var(--emerald);">Dr. Kakade's Extended Expertise</div>
+      </div>
+    </div>
+    <div class="modal-body">
+      <p>Beyond the 33 listed conditions, Dr. Kakade's Shri Homeopathy also offers expert treatment for many other health concerns. Book a consultation for personalised assessment.</p>
+      <h4>Additional Conditions Include</h4>
+      <div class="symptom-list">
+        <span>Diabetes Support</span><span>Hypertension</span><span>Obesity</span>
+        <span>Cervical Spondylosis</span><span>Frozen Shoulder</span><span>Plantar Fasciitis</span>
+        <span>Carpal Tunnel</span><span>Vitiligo</span><span>Alopecia Areata</span>
+        <span>Leucoderma</span><span>Lipoma</span><span>Fibroids</span>
+        <span>Endometriosis</span><span>Infertility</span><span>Bedwetting</span>
+        <span>Autism Support</span><span>ADHD</span><span>Stammering</span>
+        <span>Tinnitus</span><span>Vertigo</span><span>Glaucoma Support</span>
+        <span>Eye Complaints</span><span>Dental Pain</span><span>Mouth Ulcers</span>
+        <span>Asthma</span><span>Bronchitis</span><span>Pneumonia Recovery</span>
+        <span>Post-COVID Care</span><span>Fatty Liver</span><span>Hepatitis Support</span>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="mf-btn-primary">📅 Book a Consultation</button>
+      <button class="mf-btn-close" onclick="document.getElementById('moreModalOverlay').classList.remove('open')">Close</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── Filter & Search ──
+function filterServices(query, cat) {
+  const cards = document.querySelectorAll('.scard');
+  const q = (query || document.getElementById('searchInput').value).toLowerCase();
+  const activeCat = cat || document.querySelector('.cf-btn.active')?.textContent || 'All';
+  let visible = 0;
+
+  cards.forEach(c => {
+    const name = c.dataset.name?.toLowerCase() || '';
+    const cardCat = c.dataset.cat || '';
+    const body = c.textContent.toLowerCase();
+    const matchQ = !q || name.includes(q) || body.includes(q);
+    const matchCat = activeCat === 'All' || activeCat === 'All Conditions' || cardCat === activeCat;
+    const show = matchQ && matchCat;
+    c.style.display = show ? '' : 'none';
+    if(show) visible++;
+  });
+
+  document.getElementById('noResults').classList.toggle('show', visible === 0);
+  if(cat) {
+    document.querySelectorAll('.cf-btn').forEach(b => b.classList.remove('active'));
+    [...document.querySelectorAll('.cf-btn')].find(b => b.textContent.trim() === cat || (cat==='All' && b.textContent.trim()==='All Conditions'))?.classList.add('active');
+  }
+}
+
+document.getElementById('searchInput').addEventListener('input', e => filterServices(e.target.value, ''));
+
+// ── Modal ──
+function openModal(title, icon, cat, desc, treat, symptomsStr, remediesStr) {
+  document.getElementById('mTitle').textContent = title;
+  document.getElementById('mIcon').textContent = icon;
+  document.getElementById('mCat').textContent = cat;
+  document.getElementById('mDesc').textContent = desc;
+  document.getElementById('mTreat').textContent = treat;
+  const sl = document.getElementById('mSymptoms');
+  sl.innerHTML = symptomsStr.split(',').map(s=>`<span>${s.trim()}</span>`).join('');
+  const rl = document.getElementById('mRemedies');
+  rl.innerHTML = remediesStr.split(',').map(r=>`<span>${r.trim()}</span>`).join('');
+  document.getElementById('modalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(){
+  document.getElementById('modalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function closeModalOutside(e){
+  if(e.target===document.getElementById('modalOverlay')) closeModal();
+}
+function showMoreModal(){
+  document.getElementById('moreModalOverlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeMoreModal(e){
+  if(e.target===document.getElementById('moreModalOverlay')){
+    document.getElementById('moreModalOverlay').classList.remove('open');
+    document.body.style.overflow='';
+  }
+}
+document.querySelector('#moreModalOverlay .mf-btn-close').addEventListener('click',()=>{
+  document.getElementById('moreModalOverlay').classList.remove('open');
+  document.body.style.overflow='';
+});
+
+// ── Staggered card animation on scroll ──
+const obs = new IntersectionObserver(entries=>{
+  entries.forEach((e,i)=>{
+    if(e.isIntersecting){
+      const cards=[...document.querySelectorAll('.scard')];
+      const idx=cards.indexOf(e.target);
+      e.target.style.animationDelay=(idx%4*0.08)+'s';
+      e.target.style.animationFillMode='both';
+      e.target.style.opacity='';
+      obs.unobserve(e.target);
+    }
+  });
+},{threshold:0.08});
+document.querySelectorAll('.scard').forEach(c=>obs.observe(c));
+
+// ── Filter button active toggle ──
+document.querySelectorAll('.cf-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.cf-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>

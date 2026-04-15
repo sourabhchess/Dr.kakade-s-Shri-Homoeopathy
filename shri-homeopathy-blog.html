@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Blog – Shri Homeopathy | Dr. Kakade</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --sage:       #5c7a5c;
+    --sage-light: #8aab88;
+    --cream:      #faf6ef;
+    --warm-white: #f5efe3;
+    --gold:       #b8935a;
+    --gold-light: #d4b483;
+    --deep:       #1e2b1e;
+    --text:       #2c3a2c;
+    --muted:      #6b7d6b;
+    --border:     #d6cfc0;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(250,246,239,0.94);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 2.5rem;
+    height: 68px;
+  }
+  .nav-brand {
+    display: flex; align-items: center; gap: 0.9rem; text-decoration: none;
+  }
+  .nav-brand .logo-mark {
+    width: 40px; height: 40px;
+    background: var(--sage);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    color: white; font-size: 1.35rem; font-style: italic; font-weight: 600;
+  }
+  .nav-brand .brand-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem; font-weight: 600;
+    color: var(--deep); line-height: 1.15;
+  }
+  .nav-brand .brand-sub {
+    font-size: 0.7rem; color: var(--muted); letter-spacing: 0.12em;
+    text-transform: uppercase; font-family: 'DM Sans', sans-serif;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    text-decoration: none; font-size: 0.85rem;
+    color: var(--muted); letter-spacing: 0.04em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--sage); }
+  .nav-cta {
+    background: var(--sage); color: white;
+    border: none; padding: 0.55rem 1.4rem;
+    border-radius: 30px; font-size: 0.82rem;
+    cursor: pointer; letter-spacing: 0.04em;
+    transition: background 0.2s;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .nav-cta:hover { background: var(--deep); }
+
+  /* ─── HERO BANNER ─── */
+  .blog-hero {
+    background: var(--deep);
+    color: white;
+    padding: 5.5rem 2.5rem 4rem;
+    text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .blog-hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 70% at 20% 50%, rgba(92,122,92,0.28) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 60% at 80% 30%, rgba(184,147,90,0.18) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .leaf-pattern {
+    position: absolute; inset: 0; opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M30 5 Q45 20 30 35 Q15 20 30 5Z' fill='white'/%3E%3C/svg%3E");
+    background-size: 60px 60px;
+  }
+  .hero-tag {
+    display: inline-block;
+    border: 1px solid rgba(184,147,90,0.5);
+    color: var(--gold-light);
+    font-size: 0.72rem; letter-spacing: 0.18em;
+    text-transform: uppercase; padding: 0.35rem 1rem;
+    border-radius: 30px; margin-bottom: 1.4rem;
+  }
+  .blog-hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    font-weight: 300; line-height: 1.15;
+    margin-bottom: 1rem;
+  }
+  .blog-hero h1 em { font-style: italic; color: var(--gold-light); }
+  .blog-hero p {
+    font-size: 1rem; color: rgba(255,255,255,0.65);
+    max-width: 520px; margin: 0 auto 2.4rem; line-height: 1.7;
+  }
+
+  /* ─── SEARCH + FILTER ─── */
+  .filter-bar {
+    display: flex; flex-wrap: wrap; gap: 0.8rem;
+    align-items: center; justify-content: center;
+    position: relative;
+  }
+  .search-wrap {
+    display: flex; align-items: center;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 30px; padding: 0.5rem 1.1rem; gap: 0.5rem;
+  }
+  .search-wrap input {
+    background: none; border: none; outline: none;
+    color: white; font-size: 0.85rem; width: 220px;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .search-wrap input::placeholder { color: rgba(255,255,255,0.4); }
+  .search-wrap svg { opacity: 0.5; }
+  .tag-btn {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.7); font-size: 0.78rem;
+    padding: 0.45rem 1rem; border-radius: 30px;
+    cursor: pointer; transition: all 0.2s;
+    font-family: 'DM Sans', sans-serif; letter-spacing: 0.04em;
+  }
+  .tag-btn:hover, .tag-btn.active {
+    background: var(--sage); border-color: var(--sage); color: white;
+  }
+
+  /* ─── MAIN LAYOUT ─── */
+  .blog-wrap {
+    max-width: 1200px; margin: 0 auto;
+    padding: 4rem 2rem;
+    display: grid; grid-template-columns: 1fr 320px; gap: 3.5rem;
+  }
+
+  /* ─── FEATURED CARD ─── */
+  .featured-label {
+    font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1.2rem;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .featured-label::after {
+    content: ''; flex: 1; height: 1px; background: var(--border);
+  }
+  .card-featured {
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    margin-bottom: 2.5rem;
+    display: grid; grid-template-columns: 1fr 1fr;
+    transition: box-shadow 0.3s;
+  }
+  .card-featured:hover { box-shadow: 0 12px 40px rgba(30,43,30,0.1); }
+  .card-featured .img-wrap {
+    height: 320px;
+    background: linear-gradient(135deg, #d4e8d0 0%, #a8c8a0 50%, #7aaa76 100%);
+    position: relative; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .card-featured .img-wrap .illus {
+    font-size: 6rem; opacity: 0.6;
+    transform: rotate(-8deg);
+  }
+  .card-featured .img-wrap .badge {
+    position: absolute; top: 1rem; left: 1rem;
+    background: var(--gold); color: white;
+    font-size: 0.68rem; padding: 0.3rem 0.7rem;
+    border-radius: 20px; letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .card-featured .body {
+    padding: 2.2rem 2rem;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .card-featured .meta {
+    font-size: 0.75rem; color: var(--muted);
+    margin-bottom: 0.8rem; display: flex; gap: 1rem; align-items: center;
+  }
+  .cat-pill {
+    background: rgba(92,122,92,0.1); color: var(--sage);
+    font-size: 0.72rem; padding: 0.2rem 0.65rem;
+    border-radius: 20px; font-weight: 500;
+  }
+  .card-featured h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.9rem; font-weight: 400; line-height: 1.25;
+    margin-bottom: 0.9rem; color: var(--deep);
+  }
+  .card-featured p {
+    font-size: 0.9rem; color: var(--muted);
+    line-height: 1.7; margin-bottom: 1.6rem;
+  }
+  .read-btn {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    color: var(--sage); font-size: 0.85rem; font-weight: 500;
+    text-decoration: none; transition: gap 0.2s;
+  }
+  .read-btn:hover { gap: 0.8rem; }
+  .read-btn .arr { transition: transform 0.2s; }
+  .read-btn:hover .arr { transform: translateX(3px); }
+
+  /* ─── GRID CARDS ─── */
+  .posts-heading {
+    font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 1.4rem;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .posts-heading::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+  .posts-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1.6rem;
+  }
+  .card {
+    background: white; border-radius: 14px;
+    border: 1px solid var(--border); overflow: hidden;
+    transition: box-shadow 0.25s, transform 0.25s;
+    cursor: pointer;
+  }
+  .card:hover { box-shadow: 0 8px 30px rgba(30,43,30,0.09); transform: translateY(-3px); }
+  .card .img {
+    height: 170px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 3.5rem; position: relative;
+  }
+  .card .img .tag-corner {
+    position: absolute; bottom: 0.7rem; left: 0.7rem;
+  }
+  .c1 .img { background: linear-gradient(135deg,#e8f4e8,#c5dfc4); }
+  .c2 .img { background: linear-gradient(135deg,#f4ede8,#dfc5b0); }
+  .c3 .img { background: linear-gradient(135deg,#e8eef4,#b0c5df); }
+  .c4 .img { background: linear-gradient(135deg,#f4e8f0,#dfc4d9); }
+  .c5 .img { background: linear-gradient(135deg,#f4f4e8,#dfdfb0); }
+  .c6 .img { background: linear-gradient(135deg,#e8f4f0,#b0dfd4); }
+  .card .body { padding: 1.3rem 1.3rem 1.5rem; }
+  .card .meta { font-size: 0.72rem; color: var(--muted); margin-bottom: 0.5rem; display: flex; gap: 0.8rem; align-items: center; }
+  .card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem; font-weight: 400; line-height: 1.3;
+    color: var(--deep); margin-bottom: 0.5rem;
+  }
+  .card p { font-size: 0.82rem; color: var(--muted); line-height: 1.65; margin-bottom: 1rem; }
+  .card-footer {
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: 0.75rem; color: var(--muted);
+  }
+  .read-more {
+    color: var(--sage); font-weight: 500; font-size: 0.78rem;
+    display: flex; align-items: center; gap: 0.3rem; text-decoration: none;
+  }
+
+  /* ─── PAGINATION ─── */
+  .pagination {
+    display: flex; justify-content: center; gap: 0.4rem;
+    margin-top: 3rem;
+  }
+  .page-btn {
+    width: 38px; height: 38px; border-radius: 50%;
+    border: 1px solid var(--border); background: white;
+    font-size: 0.85rem; cursor: pointer; transition: all 0.2s;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .page-btn:hover { border-color: var(--sage); color: var(--sage); }
+  .page-btn.active { background: var(--sage); color: white; border-color: var(--sage); }
+
+  /* ─── SIDEBAR ─── */
+  .sidebar { display: flex; flex-direction: column; gap: 2rem; }
+
+  .sidebar-card {
+    background: white; border-radius: 14px;
+    border: 1px solid var(--border);
+    padding: 1.6rem;
+  }
+  .sidebar-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem; font-weight: 400;
+    color: var(--deep); margin-bottom: 1.2rem;
+    padding-bottom: 0.7rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* Doctor card */
+  .doc-card { text-align: center; }
+  .doc-avatar {
+    width: 80px; height: 80px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--sage-light), var(--sage));
+    margin: 0 auto 1rem;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2.2rem;
+  }
+  .doc-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem; color: var(--deep); margin-bottom: 0.2rem;
+  }
+  .doc-card .title { font-size: 0.78rem; color: var(--gold); margin-bottom: 0.8rem; }
+  .doc-card p { font-size: 0.82rem; color: var(--muted); line-height: 1.6; margin-bottom: 1.2rem; }
+  .appt-btn {
+    width: 100%; padding: 0.7rem;
+    background: var(--sage); color: white; border: none;
+    border-radius: 8px; font-size: 0.85rem; cursor: pointer;
+    font-family: 'DM Sans', sans-serif; transition: background 0.2s;
+  }
+  .appt-btn:hover { background: var(--deep); }
+
+  /* Categories */
+  .cat-list { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+  .cat-list li a {
+    display: flex; justify-content: space-between; align-items: center;
+    text-decoration: none; font-size: 0.85rem; color: var(--text);
+    padding: 0.45rem 0; border-bottom: 1px solid rgba(214,207,192,0.4);
+    transition: color 0.2s;
+  }
+  .cat-list li a:hover { color: var(--sage); }
+  .cat-list .count {
+    background: rgba(92,122,92,0.1); color: var(--sage);
+    font-size: 0.7rem; padding: 0.15rem 0.55rem; border-radius: 20px;
+  }
+
+  /* Popular posts */
+  .pop-post { display: flex; gap: 0.9rem; padding: 0.7rem 0; border-bottom: 1px solid rgba(214,207,192,0.4); }
+  .pop-post:last-child { border-bottom: none; }
+  .pop-thumb {
+    width: 58px; height: 58px; border-radius: 8px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center; font-size: 1.6rem;
+  }
+  .pt1 { background: linear-gradient(135deg,#e8f4e8,#c5dfc4); }
+  .pt2 { background: linear-gradient(135deg,#f4ede8,#dfc5b0); }
+  .pt3 { background: linear-gradient(135deg,#e8eef4,#b0c5df); }
+  .pop-post .info h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.95rem; font-weight: 400; color: var(--deep);
+    line-height: 1.3; margin-bottom: 0.2rem;
+  }
+  .pop-post .info span { font-size: 0.72rem; color: var(--muted); }
+
+  /* Newsletter */
+  .newsletter-card {
+    background: linear-gradient(145deg, var(--deep), #2e4030);
+    color: white; border-radius: 14px; padding: 1.8rem;
+    text-align: center; border: none;
+  }
+  .newsletter-card .icon { font-size: 2rem; margin-bottom: 0.7rem; }
+  .newsletter-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem; font-weight: 300; margin-bottom: 0.5rem;
+  }
+  .newsletter-card p { font-size: 0.8rem; color: rgba(255,255,255,0.6); margin-bottom: 1.2rem; line-height: 1.6; }
+  .nl-input {
+    width: 100%; padding: 0.65rem 0.9rem;
+    border-radius: 8px; border: 1px solid rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.08); color: white;
+    font-size: 0.82rem; margin-bottom: 0.7rem;
+    font-family: 'DM Sans', sans-serif; outline: none;
+  }
+  .nl-input::placeholder { color: rgba(255,255,255,0.35); }
+  .nl-btn {
+    width: 100%; padding: 0.65rem;
+    background: var(--gold); color: white; border: none;
+    border-radius: 8px; font-size: 0.85rem;
+    cursor: pointer; font-family: 'DM Sans', sans-serif;
+    transition: background 0.2s;
+  }
+  .nl-btn:hover { background: var(--gold-light); }
+
+  /* Tags cloud */
+  .tags-cloud { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .tag {
+    background: var(--warm-white); border: 1px solid var(--border);
+    color: var(--muted); font-size: 0.75rem;
+    padding: 0.3rem 0.75rem; border-radius: 20px;
+    cursor: pointer; transition: all 0.2s;
+  }
+  .tag:hover { background: var(--sage); color: white; border-color: var(--sage); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--deep); color: rgba(255,255,255,0.6);
+    text-align: center; padding: 2rem;
+    font-size: 0.8rem; line-height: 1.8;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  footer strong { color: rgba(255,255,255,0.85); }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(22px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .blog-hero > * { animation: fadeUp 0.7s ease both; }
+  .blog-hero .hero-tag   { animation-delay: 0.05s; }
+  .blog-hero h1          { animation-delay: 0.15s; }
+  .blog-hero p           { animation-delay: 0.25s; }
+  .blog-hero .filter-bar { animation-delay: 0.35s; }
+
+  /* ─── RESPONSIVE ─── */
+  @media(max-width: 900px) {
+    .blog-wrap { grid-template-columns: 1fr; }
+    .card-featured { grid-template-columns: 1fr; }
+    .card-featured .img-wrap { height: 220px; }
+    .nav-links { display: none; }
+  }
+  @media(max-width: 580px) {
+    .posts-grid { grid-template-columns: 1fr; }
+    .blog-hero { padding: 3.5rem 1.2rem 3rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-brand" href="#">
+    <div class="logo-mark">S</div>
+    <div>
+      <div class="brand-name">Shri Homeopathy</div>
+      <div class="brand-sub">Dr. Kakade's Clinic</div>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="service.html">Treatments</a></li>
+    <li><a href="shri-homeopathy-blog.html" class="active">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <button class="nav-cta" href="Appointment.html">Book Appointment</button>
+</nav>
+
+<!-- HERO -->
+<header class="blog-hero">
+  <div class="leaf-pattern"></div>
+  <div class="hero-tag">Health &amp; Wellness Journal</div>
+  <h1>Insights from<br><em>Nature's Healing</em></h1>
+  <p>Expert knowledge, remedies, and guidance from Dr. Kakade's decades of homeopathic practice in Solapur and beyond.</p>
+  <div class="filter-bar">
+    <div class="search-wrap">
+      <svg width="15" height="15" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="text" placeholder="Search articles…"/>
+    </div>
+    <button class="tag-btn active">All</button>
+    <button class="tag-btn">Chronic Diseases</button>
+    <button class="tag-btn">Children's Health</button>
+    <button class="tag-btn">Skin & Hair</button>
+    <button class="tag-btn">Remedies</button>
+    <button class="tag-btn">Lifestyle</button>
+  </div>
+</header>
+
+<!-- MAIN -->
+<div class="blog-wrap">
+  <main>
+
+    <!-- Featured -->
+    <div class="featured-label">✦ Featured Article</div>
+    <article class="card-featured">
+      <div class="img-wrap">
+        <div class="illus">🌿</div>
+        <span class="badge">Must Read</span>
+      </div>
+      <div class="body">
+        <div class="meta">
+          <span class="cat-pill">Holistic Health</span>
+          <span>April 10, 2026</span>
+          <span>8 min read</span>
+        </div>
+        <h2>Understanding the Power of Constitutional Homeopathy</h2>
+        <p>Constitutional homeopathy treats the whole person — mind, body, and spirit — rather than individual symptoms. Dr. Kakade explains how this approach delivers lasting healing by finding your unique constitutional remedy.</p>
+        <a href="#" class="read-btn">Read Full Article <span class="arr">→</span></a>
+      </div>
+    </article>
+
+    <!-- Grid -->
+    <div class="posts-heading">✦ Recent Articles</div>
+    <div class="posts-grid">
+
+      <article class="card c1">
+        <div class="img">
+          🌸
+          <span class="tag-corner"><span class="cat-pill">Skin &amp; Hair</span></span>
+        </div>
+        <div class="body">
+          <div class="meta"><span>Apr 7, 2026</span><span>5 min</span></div>
+          <h3>Homeopathic Solutions for Persistent Eczema</h3>
+          <p>Eczema often returns with conventional treatments. Discover how homeopathy addresses the root inflammatory response to bring long-term relief.</p>
+          <div class="card-footer">
+            <span>Dr. Kakade</span>
+            <a href="#" class="read-more">Read more →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card c2">
+        <div class="img">
+          🍃
+          <span class="tag-corner"><span class="cat-pill">Chronic Diseases</span></span>
+        </div>
+        <div class="body">
+          <div class="meta"><span>Apr 3, 2026</span><span>6 min</span></div>
+          <h3>Managing Diabetes Naturally with Homeopathy</h3>
+          <p>Homeopathy can support blood sugar management and improve energy and organ health alongside lifestyle modifications.</p>
+          <div class="card-footer">
+            <span>Dr. Kakade</span>
+            <a href="#" class="read-more">Read more →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card c3">
+        <div class="img">
+          👶
+          <span class="tag-corner"><span class="cat-pill">Children's Health</span></span>
+        </div>
+        <div class="body">
+          <div class="meta"><span>Mar 28, 2026</span><span>4 min</span></div>
+          <h3>Gentle Remedies for Recurring Childhood Infections</h3>
+          <p>Why do some children fall ill repeatedly? Homeopathy builds innate immunity with safe, side-effect-free remedies suited to young ones.</p>
+          <div class="card-footer">
+            <span>Dr. Kakade</span>
+            <a href="#" class="read-more">Read more →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card c4">
+        <div class="img">
+          🧘‍♀️
+          <span class="tag-corner"><span class="cat-pill">Women's Health</span></span>
+        </div>
+        <div class="body">
+          <div class="meta"><span>Mar 22, 2026</span><span>7 min</span></div>
+          <h3>PCOD & Hormonal Balance — A Homeopathic Perspective</h3>
+          <p>Polycystic ovarian disease responds well to individualized homeopathic treatment, restoring hormonal rhythm gently and effectively.</p>
+          <div class="card-footer">
+            <span>Dr. Kakade</span>
+            <a href="#" class="read-more">Read more →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card c5">
+        <div class="img">
+          🧠
+          <span class="tag-corner"><span class="cat-pill">Mental Wellness</span></span>
+        </div>
+        <div class="body">
+          <div class="meta"><span>Mar 15, 2026</span><span>5 min</span></div>
+          <h3>Anxiety & Stress — Calming the Mind with Remedies</h3>
+          <p>Homeopathy views anxiety as more than mere nervousness; tailored remedies address your unique emotional and physical pattern.</p>
+          <div class="card-footer">
+            <span>Dr. Kakade</span>
+            <a href="#" class="read-more">Read more →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card c6">
+        <div class="img">
+          💊
+          <span class="tag-corner"><span class="cat-pill">Remedies</span></span>
+        </div>
+        <div class="body">
+          <div class="meta"><span>Mar 9, 2026</span><span>3 min</span></div>
+          <h3>5 Must-Know Homeopathic Remedies for Every Household</h3>
+          <p>From Arnica for injuries to Belladonna for sudden fever — these essential remedies form the cornerstone of every home first-aid kit.</p>
+          <div class="card-footer">
+            <span>Dr. Kakade</span>
+            <a href="#" class="read-more">Read more →</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Pagination -->
+    <div class="pagination">
+      <button class="page-btn active">1</button>
+      <button class="page-btn">2</button>
+      <button class="page-btn">3</button>
+      <button class="page-btn">→</button>
+    </div>
+
+  </main>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <!-- About Doctor -->
+    <div class="sidebar-card doc-card">
+      <div class="doc-avatar">👨‍⚕️</div>
+      <h3>Dr. Kakade</h3>
+      <div class="title">MD (HOMOEOPATHY) • 20+ Years of Practice</div>
+      <p>Founder of Shri Homeopathy Clinic, Solapur. Committed to holistic healing through classical homeopathy and patient-centric care.</p>
+      <button class="appt-btn">📅 Book Consultation</button>
+    </div>
+
+    <!-- Categories -->
+    <div class="sidebar-card">
+      <div class="sidebar-title">Browse by Category</div>
+      <ul class="cat-list">
+        <li><a href="#">Chronic Diseases <span class="count">12</span></a></li>
+        <li><a href="#">Skin &amp; Hair <span class="count">9</span></a></li>
+        <li><a href="#">Children's Health <span class="count">7</span></a></li>
+        <li><a href="#">Women's Health <span class="count">8</span></a></li>
+        <li><a href="#">Mental Wellness <span class="count">5</span></a></li>
+        <li><a href="#">Classical Remedies <span class="count">11</span></a></li>
+        <li><a href="#">Lifestyle &amp; Diet <span class="count">6</span></a></li>
+      </ul>
+    </div>
+
+    <!-- Popular -->
+    <div class="sidebar-card">
+      <div class="sidebar-title">Popular Posts</div>
+      <div class="pop-post">
+        <div class="pop-thumb pt1">🌿</div>
+        <div class="info">
+          <h4>Constitutional Homeopathy Explained</h4>
+          <span>April 10, 2026 • 8 min</span>
+        </div>
+      </div>
+      <div class="pop-post">
+        <div class="pop-thumb pt2">🍃</div>
+        <div class="info">
+          <h4>Homeopathy for Migraine Relief</h4>
+          <span>Feb 14, 2026 • 5 min</span>
+        </div>
+      </div>
+      <div class="pop-post">
+        <div class="pop-thumb pt3">🌸</div>
+        <div class="info">
+          <h4>Hair Fall Remedies That Actually Work</h4>
+          <span>Jan 28, 2026 • 4 min</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Newsletter -->
+    <div class="newsletter-card">
+      <div class="icon">🌱</div>
+      <h3>Stay Healthy, Naturally</h3>
+      <p>Subscribe for free monthly health tips, seasonal remedy guides, and clinic updates from Dr. Kakade.</p>
+      <input class="nl-input" type="email" placeholder="Your email address"/>
+      <button class="nl-btn">Subscribe →</button>
+    </div>
+
+    <!-- Tags -->
+    <div class="sidebar-card">
+      <div class="sidebar-title">Health Topics</div>
+      <div class="tags-cloud">
+        <span class="tag">Asthma</span>
+        <span class="tag">Thyroid</span>
+        <span class="tag">Arthritis</span>
+        <span class="tag">Eczema</span>
+        <span class="tag">Diabetes</span>
+        <span class="tag">PCOD</span>
+        <span class="tag">Hair Fall</span>
+        <span class="tag">Migraine</span>
+        <span class="tag">Obesity</span>
+        <span class="tag">Immunity</span>
+        <span class="tag">Piles</span>
+        <span class="tag">Kidney Stones</span>
+        <span class="tag">Acne</span>
+        <span class="tag">Psoriasis</span>
+        <span class="tag">Anxiety</span>
+      </div>
+    </div>
+
+  </aside>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <strong>Shri Homeopathy Clinic</strong> · Dr. Kakade · Solapur, Maharashtra<br>
+  📞 +91 XXXXX XXXXX &nbsp;|&nbsp; 📧 info@shrihomeopathy.in<br>
+  <small style="opacity:0.5">© 2026 Shri Homeopathy. All rights reserved. Content is for informational purposes only.</small>
+</footer>
+
+<script>
+  // Filter buttons
+  document.querySelectorAll('.tag-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tag-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+
+  // Smooth card reveal on scroll
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach((e, i) => {
+      if(e.isIntersecting){
+        e.target.style.animationDelay = (i * 0.07) + 's';
+        e.target.style.animation = 'fadeUp 0.55s ease both';
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.card, .card-featured').forEach(c => observer.observe(c));
+</script>
+</body>
+</html>
